@@ -37,6 +37,24 @@ std::vector<DeltaEncodedPixel> readDepthEncoding(std::string fileName){
     return pixels;
 }
 
+// TODO: determine the ordering of the depth frame on disk
+// The image is upside down - when read sequentially you get
+// bottom left to top right going across the rows
+// May just want to leave as is and update later as reading the depth encoding
+// will likely be in the same coordinate system
 std::vector<std::vector<float>> readDepthFrame(int width, int height, std::string fileName){
+    cout << "Reading initial depth frame...\n";
+    std::vector<std::vector<float>> frame(width, std::vector<float>(height));
+    std::fstream fs = openFile(fileName);
 
+    for(int j = 0; j < height; j++){
+        for(int i = 0; i < width; i++){
+            float depth;
+            char* ptr = reinterpret_cast<char*>(&depth);
+            fs.read(ptr, sizeof(depth));
+            frame[i][j] = depth;
+        }
+    }
+
+    return frame;
 }

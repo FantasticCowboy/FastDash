@@ -18,6 +18,7 @@ typedef struct{
 // EFFECTS: Return vector is a 2d frame of floats that represent depths on a 0-1 scale. vector can be accessed with
 // vec[xPos][yPos] to retrieve a pixel at xPos, yPos.
 // TODO: need to specify how the float is stored on disk - big endia, small endian etc..
+// TODO: need to sepcify what the order of the pixels are in the file i.e what coordinate system is the file using
 std::vector<std::vector<float>> readDepthFrame(int width, int height, std::string fileName);
 
 // DESCRIPTION: Reads pixels from the specified file. The specified file should have this format: 
