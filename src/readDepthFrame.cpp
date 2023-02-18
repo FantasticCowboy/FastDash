@@ -37,6 +37,15 @@ std::vector<DeltaEncodedPixel> readDepthEncoding(std::string fileName){
     return pixels;
 }
 
+
+
+// Used for reading in pixels below
+struct RGBAPixel{
+    float r;
+    float g;
+    float b;
+    float a;
+};
 // TODO: determine the ordering of the depth frame on disk
 // The image is upside down - when read sequentially you get
 // bottom left to top right going across the rows
@@ -49,12 +58,13 @@ std::vector<std::vector<float>> readDepthFrame(int width, int height, std::strin
 
     for(int j = 0; j < height; j++){
         for(int i = 0; i < width; i++){
-            float depth;
+            RGBAPixel depth;
             char* ptr = reinterpret_cast<char*>(&depth);
             fs.read(ptr, sizeof(depth));
-            frame[i][j] = depth;
+            frame[j][i] = depth.a;
         }
     }
+    //assert(fs.eof());
 
     return frame;
 }
