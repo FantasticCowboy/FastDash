@@ -7,8 +7,8 @@
 
 typedef struct{
     float diff;
-    int16_t xPos;
-    int16_t yPos;
+    uint32_t xPos;
+    uint32_t yPos;
 }DeltaEncodedPixel;
 
 

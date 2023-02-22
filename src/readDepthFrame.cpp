@@ -3,6 +3,7 @@
 #include <fstream>
 #include <algorithm>
 using std::cout;
+using std::vector;
 
 
 // DESCRIPTION: Opens file and returns the correspond fstream. 
@@ -22,7 +23,6 @@ std::fstream openFile(std::string fileName){
 // TODO: need to look into preallocating the vector memory as resizing the vector dynamically
 // may lead to performance issues
 std::vector<DeltaEncodedPixel> readDepthEncoding(std::string fileName){
-    cout << "Reading Depth Encoding...\n";    
     std::vector<DeltaEncodedPixel> pixels;
     
     std::fstream fs = openFile(fileName);
@@ -52,7 +52,6 @@ struct RGBAPixel{
 // May just want to leave as is and update later as reading the depth encoding
 // will likely be in the same coordinate system
 std::vector<std::vector<float>> readDepthFrame(int width, int height, std::string fileName){
-    cout << "Reading initial depth frame...\n";
     std::vector<std::vector<float>> frame(width, std::vector<float>(height));
     std::fstream fs = openFile(fileName);
 
@@ -61,8 +60,20 @@ std::vector<std::vector<float>> readDepthFrame(int width, int height, std::strin
             RGBAPixel depth;
             char* ptr = reinterpret_cast<char*>(&depth);
             fs.read(ptr, sizeof(depth));
-            frame[j][i] = depth.a;
+            frame[j][i] = depth.r;
         }
     }
+    std::reverse(frame.begin(), frame.end());
     return frame;
+}
+
+// TODO: may not need to make deep copies here+
+std::vector<std::vector<float>> reconstructFrame(
+    std::vector<std::vector<float>> prevFrame, std::vector<DeltaEncodedPixel> diff){
+    std::vector<std::vector<float>> nextFrame = prevFrame;
+
+    for(auto px : diff){
+        nextFrame[px.yPos][px.xPos] += px.diff;
+    }
+    return nextFrame;
 }
