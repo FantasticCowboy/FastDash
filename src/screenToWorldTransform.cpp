@@ -15,7 +15,8 @@ screenToWorldTransformation::screenToWorldTransformation(
 
 // TODO: This can likely be parallelized on the GPU
 array<float,3> screenToWorldTransformation::transform(float x, float y, float z, float w){
-    z *= farClipPlaneDistance;
+
+    // TODO: Get rod of the hardcoding yuck!
     array<float,4> out = {x, y, z, w};
     int i = 0;
     for(auto row : transformMatrix){
@@ -25,6 +26,6 @@ array<float,3> screenToWorldTransformation::transform(float x, float y, float z,
 
     w = out[3];
 
-    array<float, 3> res = {out[0],out[1],out[2]};
+    array<float, 3> res = {out[0] * w,out[1] * w ,out[2] * farClipPlaneDistance * w };
     return res;
 }
