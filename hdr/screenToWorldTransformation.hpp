@@ -9,13 +9,13 @@ using std::array;
 // TODO: maybe update members to be constants in order to get better optimizations
 class screenToWorldTransformation{
 private:
-    array<array< float,4> , 3 > transformMatrix;
+    array<array< float,4> , 4 > transformMatrix;
     float farClipPlaneDistance;
     array< float,3> cameraPos;
 public:
-    screenToWorldTransformation(array<array<float,4> ,3 > transformMatrixIn, float farClipPlaneIn, array<float,3> cameraPosIn);
+    screenToWorldTransformation(array<array<float,4> ,4 > transformMatrixIn, float farClipPlaneIn, array<float,3> cameraPosIn);
 
     // DESCRIPTION: converts the x,y,z screen coordinate into world coordinates
     // REQUIRES: z is a float from 0-1 such that 0 means it is on the near clip plane and 1 means it is on the far clip plane
-    array<float,3> transform(float x, float y, float z);
+    array<float,3> transform(float x, float y, float z, float w);
 };
