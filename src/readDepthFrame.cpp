@@ -54,8 +54,7 @@ struct RGBAPixel{
 std::vector<std::vector<float>> readDepthFrame(int width, int height, std::string fileName){
     std::vector<std::vector<float>> frame(width, std::vector<float>(height));
     std::fstream fs = openFile(fileName);
-
-    for(int j = height - 1; j >=0 ; j--){
+    for(int j = 0; j < height ; j++){
         for(int i = 0; i < width; i++){
             RGBAPixel depth;
             char* ptr = reinterpret_cast<char*>(&depth);
@@ -63,7 +62,6 @@ std::vector<std::vector<float>> readDepthFrame(int width, int height, std::strin
             frame[j][i] = depth.r;
         }
     }
-    std::reverse(frame.begin(), frame.end());
     return frame;
 }
 
