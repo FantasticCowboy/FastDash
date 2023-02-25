@@ -24,6 +24,7 @@ array<float, 4> matrixMultiply(array<float,4> vec, array<array<float,4>, 4> mat)
 }
 
 // TODO: This can likely be parallelized on the GPU
+// TOOD: I need to understand what is going on and why this transformation works correctly
 array<float,3> screenToWorldTransformation::transform(float x, float y, float z, float w){
     float distance = z * farClipPlaneDistance; 
     x /= 200;
@@ -32,7 +33,6 @@ array<float,3> screenToWorldTransformation::transform(float x, float y, float z,
     y = 2 * y - 1;
     x *= distance;
     y *= distance;
-    // TODO: Get rod of the hardcoding yuck!
     array<float, 4> out = {x,y, distance, distance}; 
     out = matrixMultiply(out, transformMatrix);
     out = {out[1], out[0], out[2], 1};
