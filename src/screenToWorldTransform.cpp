@@ -35,9 +35,10 @@ array<float,3> screenToWorldTransformation::transform(float x, float y, float z,
     // TODO: Get rod of the hardcoding yuck!
     array<float, 4> out = {x,y, distance, distance}; 
     out = matrixMultiply(out, transformMatrix);
-    matrixMultiply(out, localToWorld);
+    out = {out[1], out[0], out[2], 1};
+    out = matrixMultiply(out, localToWorld);
 
-    array<float, 3> res = {{out[0],out[1],out[2]}};
+    array<float, 3> res = {{out[0],out[1], out[2]}};
 
     return res;
 }
