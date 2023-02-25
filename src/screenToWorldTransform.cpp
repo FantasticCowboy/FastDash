@@ -7,31 +7,38 @@ using std::end;
 
 
 screenToWorldTransformation::screenToWorldTransformation(
-    array<array<float,4>, 4 > transformMatrixIn, float farClipPlaneIn, array<float,3> cameraPosIn) : farClipPlaneDistance(farClipPlaneIn){
+    array<array<float,4> ,4 > transformMatrixIn, float farClipPlaneIn, array<array< float,4> , 4 >  localToWorldIn) : farClipPlaneDistance(farClipPlaneIn){
     copy(begin(transformMatrixIn), end(transformMatrixIn), begin(transformMatrix));
-    copy(begin(cameraPosIn), end(cameraPosIn), begin(cameraPos));
+    copy(begin(localToWorldIn), end(localToWorldIn), begin(localToWorld));
 }
 
 
+array<float, 4> matrixMultiply(array<float,4> vec, array<array<float,4>, 4> mat){
+    array<float, 4> out;
+    int i = 0;
+    for(auto row : mat){
+        out[i] = row[0] * vec[0] + row[1] * vec[1] +row[2] * vec[2] + row[3] * vec[3];
+        i++;
+    }
+    return out;
+}
+
 // TODO: This can likely be parallelized on the GPU
 array<float,3> screenToWorldTransformation::transform(float x, float y, float z, float w){
-
+    float distance = z * farClipPlaneDistance; 
     x /= 200;
     y /= 200;
     x = 2 * x - 1;
     y = 2 * y - 1;
-    x *= z * farClipPlaneDistance;
-    y *= z * farClipPlaneDistance;
-    float distance = z * farClipPlaneDistance; 
+    x *= distance;
+    y *= distance;
     // TODO: Get rod of the hardcoding yuck!
-    array<float,4> out;
-    int i = 0;
-    for(auto row : transformMatrix){
-        out[i] = x * row[0] +  y * row[1] + distance * row[2] + distance * row[3];
-        i++;
-    }
-    w = out[3];
-    array<float, 3> res = {out[1] ,out[0] ,out[2]};
+    array<float, 4> out = {x,y, distance, distance}; 
+    out = matrixMultiply(out, transformMatrix);
+    matrixMultiply(out, localToWorld);
+
+    array<float, 3> res = {{out[0],out[1],out[2]}};
+
     return res;
 }
 
