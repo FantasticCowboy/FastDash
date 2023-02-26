@@ -1,0 +1,592 @@
+Compilation failed:
+    source file: '/Users/lukehobeika/Desktop/Desktop/Projects/Harsha_Research_Lab/FastDash/thirdParty/opencv_build/CMakeFiles/CMakeTmp/src.cxx'
+    check option: ''
+===== BUILD LOG =====
+Change Dir: /Users/lukehobeika/Desktop/Desktop/Projects/Harsha_Research_Lab/FastDash/thirdParty/opencv_build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_400ee/fast && /Applications/Xcode.app/Contents/Developer/usr/bin/make  -f CMakeFiles/cmTC_400ee.dir/build.make CMakeFiles/cmTC_400ee.dir/build
+Building CXX object CMakeFiles/cmTC_400ee.dir/src.cxx.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++   -O3 -DNDEBUG -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.1.sdk -mmacosx-version-min=12.5 -fPIE -std=c++11 -MD -MT CMakeFiles/cmTC_400ee.dir/src.cxx.o -MF CMakeFiles/cmTC_400ee.dir/src.cxx.o.d -o CMakeFiles/cmTC_400ee.dir/src.cxx.o -c /Users/lukehobeika/Desktop/Desktop/Projects/Harsha_Research_Lab/FastDash/thirdParty/opencv_build/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_400ee
+/Applications/CMake.app/Contents/bin/cmake -E cmake_link_script CMakeFiles/cmTC_400ee.dir/link.txt --verbose=1
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ -O3 -DNDEBUG -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.1.sdk -mmacosx-version-min=12.5 -Wl,-search_paths_first -Wl,-headerpad_max_install_names  -Wl,--as-needed  CMakeFiles/cmTC_400ee.dir/src.cxx.o -o cmTC_400ee 
+ld: unknown option: --as-needed
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+make[1]: *** [cmTC_400ee] Error 1
+make: *** [cmTC_400ee/fast] Error 2
+
+
+===== END =====
+
+Compilation failed:
+    source file: '/Users/lukehobeika/Desktop/Desktop/Projects/Harsha_Research_Lab/FastDash/thirdParty/opencv_build/CMakeFiles/CMakeTmp/src.cxx'
+    check option: ''
+===== BUILD LOG =====
+Change Dir: /Users/lukehobeika/Desktop/Desktop/Projects/Harsha_Research_Lab/FastDash/thirdParty/opencv_build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_d86df/fast && /Applications/Xcode.app/Contents/Developer/usr/bin/make  -f CMakeFiles/cmTC_d86df.dir/build.make CMakeFiles/cmTC_d86df.dir/build
+Building CXX object CMakeFiles/cmTC_d86df.dir/src.cxx.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++   -O3 -DNDEBUG -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.1.sdk -mmacosx-version-min=12.5 -fPIE -std=c++11 -MD -MT CMakeFiles/cmTC_d86df.dir/src.cxx.o -MF CMakeFiles/cmTC_d86df.dir/src.cxx.o.d -o CMakeFiles/cmTC_d86df.dir/src.cxx.o -c /Users/lukehobeika/Desktop/Desktop/Projects/Harsha_Research_Lab/FastDash/thirdParty/opencv_build/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_d86df
+/Applications/CMake.app/Contents/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d86df.dir/link.txt --verbose=1
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ -O3 -DNDEBUG -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.1.sdk -mmacosx-version-min=12.5 -Wl,-search_paths_first -Wl,-headerpad_max_install_names  -Wl,--no-undefined  CMakeFiles/cmTC_d86df.dir/src.cxx.o -o cmTC_d86df 
+ld: unknown option: --no-undefined
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+make[1]: *** [cmTC_d86df] Error 1
+make: *** [cmTC_d86df/fast] Error 2
+
+
+===== END =====
+
+Determining if the include file malloc.h exists failed with the following output:
+Change Dir: /Users/lukehobeika/Desktop/Desktop/Projects/Harsha_Research_Lab/FastDash/thirdParty/opencv_build/CMakeFiles/CMakeScratch/TryCompile-BbCBCa
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_7e000/fast && /Applications/Xcode.app/Contents/Developer/usr/bin/make  -f CMakeFiles/cmTC_7e000.dir/build.make CMakeFiles/cmTC_7e000.dir/build
+Building C object CMakeFiles/cmTC_7e000.dir/CheckIncludeFile.c.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -fsigned-char -W -Wall -Wreturn-type -Wnon-virtual-dtor -Waddress -Wsequence-point -Wformat -Wformat-security -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wundef -Winit-self -Wpointer-arith -Wshadow -Wsign-promo -Wuninitialized -Wno-delete-non-virtual-dtor -Wno-unnamed-type-template-args -Wno-comment -fdiagnostics-show-option -Qunused-arguments -Wno-semicolon-before-method-body -ffunction-sections -fdata-sections    -fvisibility=hidden -fvisibility-inlines-hidden  -O3 -DNDEBUG  -DNDEBUG -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.1.sdk -mmacosx-version-min=12.5 -fPIE -MD -MT CMakeFiles/cmTC_7e000.dir/CheckIncludeFile.c.o -MF CMakeFiles/cmTC_7e000.dir/CheckIncludeFile.c.o.d -o CMakeFiles/cmTC_7e000.dir/CheckIncludeFile.c.o -c /Users/lukehobeika/Desktop/Desktop/Projects/Harsha_Research_Lab/FastDash/thirdParty/opencv_build/CMakeFiles/CMakeScratch/TryCompile-BbCBCa/CheckIncludeFile.c
+/Users/lukehobeika/Desktop/Desktop/Projects/Harsha_Research_Lab/FastDash/thirdParty/opencv_build/CMakeFiles/CMakeScratch/TryCompile-BbCBCa/CheckIncludeFile.c:1:10: fatal error: 'malloc.h' file not found
+#include <malloc.h>
+         ^~~~~~~~~~
+1 error generated.
+make[1]: *** [CMakeFiles/cmTC_7e000.dir/CheckIncludeFile.c.o] Error 1
+make: *** [cmTC_7e000/fast] Error 2
+
+
+
+Determining size of off64_t failed with the following output:
+Change Dir: /Users/lukehobeika/Desktop/Desktop/Projects/Harsha_Research_Lab/FastDash/thirdParty/opencv_build/CMakeFiles/CMakeScratch/TryCompile-1rhXiI
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_65226/fast && /Applications/Xcode.app/Contents/Developer/usr/bin/make  -f CMakeFiles/cmTC_65226.dir/build.make CMakeFiles/cmTC_65226.dir/build
+Building C object CMakeFiles/cmTC_65226.dir/OFF64_T.c.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -fsigned-char -W -Wall -Wreturn-type -Wnon-virtual-dtor -Waddress -Wsequence-point -Wformat -Wformat-security -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wundef -Winit-self -Wpointer-arith -Wshadow -Wsign-promo -Wuninitialized -Wno-delete-non-virtual-dtor -Wno-unnamed-type-template-args -Wno-comment -fdiagnostics-show-option -Qunused-arguments -Wno-semicolon-before-method-body -ffunction-sections -fdata-sections    -fvisibility=hidden -fvisibility-inlines-hidden  -O3 -DNDEBUG  -DNDEBUG -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.1.sdk -mmacosx-version-min=12.5 -fPIE -MD -MT CMakeFiles/cmTC_65226.dir/OFF64_T.c.o -MF CMakeFiles/cmTC_65226.dir/OFF64_T.c.o.d -o CMakeFiles/cmTC_65226.dir/OFF64_T.c.o -c /Users/lukehobeika/Desktop/Desktop/Projects/Harsha_Research_Lab/FastDash/thirdParty/opencv_build/CMakeFiles/CMakeScratch/TryCompile-1rhXiI/OFF64_T.c
+/Users/lukehobeika/Desktop/Desktop/Projects/Harsha_Research_Lab/FastDash/thirdParty/opencv_build/CMakeFiles/CMakeScratch/TryCompile-1rhXiI/OFF64_T.c:29:12: error: use of undeclared identifier 'off64_t'
+  ('0' + ((SIZE / 10000)%10)),
+           ^
+/Users/lukehobeika/Desktop/Desktop/Projects/Harsha_Research_Lab/FastDash/thirdParty/opencv_build/CMakeFiles/CMakeScratch/TryCompile-1rhXiI/OFF64_T.c:27:22: note: expanded from macro 'SIZE'
+#define SIZE (sizeof(off64_t))
+                     ^
+/Users/lukehobeika/Desktop/Desktop/Projects/Harsha_Research_Lab/FastDash/thirdParty/opencv_build/CMakeFiles/CMakeScratch/TryCompile-1rhXiI/OFF64_T.c:30:12: error: use of undeclared identifier 'off64_t'
+  ('0' + ((SIZE / 1000)%10)),
+           ^
+/Users/lukehobeika/Desktop/Desktop/Projects/Harsha_Research_Lab/FastDash/thirdParty/opencv_build/CMakeFiles/CMakeScratch/TryCompile-1rhXiI/OFF64_T.c:27:22: note: expanded from macro 'SIZE'
+#define SIZE (sizeof(off64_t))
+                     ^
+/Users/lukehobeika/Desktop/Desktop/Projects/Harsha_Research_Lab/FastDash/thirdParty/opencv_build/CMakeFiles/CMakeScratch/TryCompile-1rhXiI/OFF64_T.c:31:12: error: use of undeclared identifier 'off64_t'
+  ('0' + ((SIZE / 100)%10)),
+           ^
+/Users/lukehobeika/Desktop/Desktop/Projects/Harsha_Research_Lab/FastDash/thirdParty/opencv_build/CMakeFiles/CMakeScratch/TryCompile-1rhXiI/OFF64_T.c:27:22: note: expanded from macro 'SIZE'
+#define SIZE (sizeof(off64_t))
+                     ^
+/Users/lukehobeika/Desktop/Desktop/Projects/Harsha_Research_Lab/FastDash/thirdParty/opencv_build/CMakeFiles/CMakeScratch/TryCompile-1rhXiI/OFF64_T.c:32:12: error: use of undeclared identifier 'off64_t'
+  ('0' + ((SIZE / 10)%10)),
+           ^
+/Users/lukehobeika/Desktop/Desktop/Projects/Harsha_Research_Lab/FastDash/thirdParty/opencv_build/CMakeFiles/CMakeScratch/TryCompile-1rhXiI/OFF64_T.c:27:22: note: expanded from macro 'SIZE'
+#define SIZE (sizeof(off64_t))
+                     ^
+/Users/lukehobeika/Desktop/Desktop/Projects/Harsha_Research_Lab/FastDash/thirdParty/opencv_build/CMakeFiles/CMakeScratch/TryCompile-1rhXiI/OFF64_T.c:33:12: error: use of undeclared identifier 'off64_t'
+  ('0' +  (SIZE    % 10)),
+           ^
+/Users/lukehobeika/Desktop/Desktop/Projects/Harsha_Research_Lab/FastDash/thirdParty/opencv_build/CMakeFiles/CMakeScratch/TryCompile-1rhXiI/OFF64_T.c:27:22: note: expanded from macro 'SIZE'
+#define SIZE (sizeof(off64_t))
+                     ^
+5 errors generated.
+make[1]: *** [CMakeFiles/cmTC_65226.dir/OFF64_T.c.o] Error 1
+make: *** [cmTC_65226/fast] Error 2
+
+
+OFF64_T.c:
+#include <sys/types.h>
+#include <stdint.h>
+#include <stddef.h>
+
+
+#undef KEY
+#if defined(__i386)
+# define KEY '_','_','i','3','8','6'
+#elif defined(__x86_64)
+# define KEY '_','_','x','8','6','_','6','4'
+#elif defined(__PPC64__)
+# define KEY '_','_','P','P','C','6','4','_','_'
+#elif defined(__ppc64__)
+# define KEY '_','_','p','p','c','6','4','_','_'
+#elif defined(__PPC__)
+# define KEY '_','_','P','P','C','_','_'
+#elif defined(__ppc__)
+# define KEY '_','_','p','p','c','_','_'
+#elif defined(__aarch64__)
+# define KEY '_','_','a','a','r','c','h','6','4','_','_'
+#elif defined(__ARM_ARCH_7A__)
+# define KEY '_','_','A','R','M','_','A','R','C','H','_','7','A','_','_'
+#elif defined(__ARM_ARCH_7S__)
+# define KEY '_','_','A','R','M','_','A','R','C','H','_','7','S','_','_'
+#endif
+
+#define SIZE (sizeof(off64_t))
+static char info_size[] =  {'I', 'N', 'F', 'O', ':', 's','i','z','e','[',
+  ('0' + ((SIZE / 10000)%10)),
+  ('0' + ((SIZE / 1000)%10)),
+  ('0' + ((SIZE / 100)%10)),
+  ('0' + ((SIZE / 10)%10)),
+  ('0' +  (SIZE    % 10)),
+  ']',
+#ifdef KEY
+  ' ','k','e','y','[', KEY, ']',
+#endif
+  '\0'};
+
+#ifdef __CLASSIC_C__
+int main(argc, argv) int argc; char *argv[];
+#else
+int main(int argc, char *argv[])
+#endif
+{
+  int require = 0;
+  require += info_size[argc];
+  (void)argv;
+  return require;
+}
+
+
+Determining if the include file io.h exists failed with the following output:
+Change Dir: /Users/lukehobeika/Desktop/Desktop/Projects/Harsha_Research_Lab/FastDash/thirdParty/opencv_build/CMakeFiles/CMakeScratch/TryCompile-S2blDV
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_67175/fast && /Applications/Xcode.app/Contents/Developer/usr/bin/make  -f CMakeFiles/cmTC_67175.dir/build.make CMakeFiles/cmTC_67175.dir/build
+Building C object CMakeFiles/cmTC_67175.dir/CheckIncludeFile.c.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -fsigned-char -W -Wall -Wreturn-type -Wnon-virtual-dtor -Waddress -Wsequence-point -Wformat -Wformat-security -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wundef -Winit-self -Wpointer-arith -Wshadow -Wsign-promo -Wuninitialized -Wno-delete-non-virtual-dtor -Wno-unnamed-type-template-args -Wno-comment -fdiagnostics-show-option -Qunused-arguments -Wno-semicolon-before-method-body -ffunction-sections -fdata-sections    -fvisibility=hidden -fvisibility-inlines-hidden  -O3 -DNDEBUG  -DNDEBUG -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.1.sdk -mmacosx-version-min=12.5 -fPIE -MD -MT CMakeFiles/cmTC_67175.dir/CheckIncludeFile.c.o -MF CMakeFiles/cmTC_67175.dir/CheckIncludeFile.c.o.d -o CMakeFiles/cmTC_67175.dir/CheckIncludeFile.c.o -c /Users/lukehobeika/Desktop/Desktop/Projects/Harsha_Research_Lab/FastDash/thirdParty/opencv_build/CMakeFiles/CMakeScratch/TryCompile-S2blDV/CheckIncludeFile.c
+/Users/lukehobeika/Desktop/Desktop/Projects/Harsha_Research_Lab/FastDash/thirdParty/opencv_build/CMakeFiles/CMakeScratch/TryCompile-S2blDV/CheckIncludeFile.c:1:10: fatal error: 'io.h' file not found
+#include <io.h>
+         ^~~~~~
+1 error generated.
+make[1]: *** [CMakeFiles/cmTC_67175.dir/CheckIncludeFile.c.o] Error 1
+make: *** [cmTC_67175/fast] Error 2
+
+
+
+Determining size of INT8 failed with the following output:
+Change Dir: /Users/lukehobeika/Desktop/Desktop/Projects/Harsha_Research_Lab/FastDash/thirdParty/opencv_build/CMakeFiles/CMakeScratch/TryCompile-fV8g6L
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_d259c/fast && /Applications/Xcode.app/Contents/Developer/usr/bin/make  -f CMakeFiles/cmTC_d259c.dir/build.make CMakeFiles/cmTC_d259c.dir/build
+Building C object CMakeFiles/cmTC_d259c.dir/int8.c.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -fsigned-char -W -Wall -Wreturn-type -Wnon-virtual-dtor -Waddress -Wsequence-point -Wformat -Wformat-security -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wundef -Winit-self -Wpointer-arith -Wshadow -Wsign-promo -Wuninitialized -Wno-delete-non-virtual-dtor -Wno-unnamed-type-template-args -Wno-comment -fdiagnostics-show-option -Qunused-arguments -Wno-semicolon-before-method-body -ffunction-sections -fdata-sections    -fvisibility=hidden -fvisibility-inlines-hidden  -O3 -DNDEBUG  -DNDEBUG -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.1.sdk -mmacosx-version-min=12.5 -fPIE -MD -MT CMakeFiles/cmTC_d259c.dir/int8.c.o -MF CMakeFiles/cmTC_d259c.dir/int8.c.o.d -o CMakeFiles/cmTC_d259c.dir/int8.c.o -c /Users/lukehobeika/Desktop/Desktop/Projects/Harsha_Research_Lab/FastDash/thirdParty/opencv_build/CMakeFiles/CMakeScratch/TryCompile-fV8g6L/int8.c
+/Users/lukehobeika/Desktop/Desktop/Projects/Harsha_Research_Lab/FastDash/thirdParty/opencv_build/CMakeFiles/CMakeScratch/TryCompile-fV8g6L/int8.c:29:12: error: use of undeclared identifier 'INT8'
+  ('0' + ((SIZE / 10000)%10)),
+           ^
+/Users/lukehobeika/Desktop/Desktop/Projects/Harsha_Research_Lab/FastDash/thirdParty/opencv_build/CMakeFiles/CMakeScratch/TryCompile-fV8g6L/int8.c:27:22: note: expanded from macro 'SIZE'
+#define SIZE (sizeof(INT8))
+                     ^
+/Users/lukehobeika/Desktop/Desktop/Projects/Harsha_Research_Lab/FastDash/thirdParty/opencv_build/CMakeFiles/CMakeScratch/TryCompile-fV8g6L/int8.c:30:12: error: use of undeclared identifier 'INT8'
+  ('0' + ((SIZE / 1000)%10)),
+           ^
+/Users/lukehobeika/Desktop/Desktop/Projects/Harsha_Research_Lab/FastDash/thirdParty/opencv_build/CMakeFiles/CMakeScratch/TryCompile-fV8g6L/int8.c:27:22: note: expanded from macro 'SIZE'
+#define SIZE (sizeof(INT8))
+                     ^
+/Users/lukehobeika/Desktop/Desktop/Projects/Harsha_Research_Lab/FastDash/thirdParty/opencv_build/CMakeFiles/CMakeScratch/TryCompile-fV8g6L/int8.c:31:12: error: use of undeclared identifier 'INT8'
+  ('0' + ((SIZE / 100)%10)),
+           ^
+/Users/lukehobeika/Desktop/Desktop/Projects/Harsha_Research_Lab/FastDash/thirdParty/opencv_build/CMakeFiles/CMakeScratch/TryCompile-fV8g6L/int8.c:27:22: note: expanded from macro 'SIZE'
+#define SIZE (sizeof(INT8))
+                     ^
+/Users/lukehobeika/Desktop/Desktop/Projects/Harsha_Research_Lab/FastDash/thirdParty/opencv_build/CMakeFiles/CMakeScratch/TryCompile-fV8g6L/int8.c:32:12: error: use of undeclared identifier 'INT8'
+  ('0' + ((SIZE / 10)%10)),
+           ^
+/Users/lukehobeika/Desktop/Desktop/Projects/Harsha_Research_Lab/FastDash/thirdParty/opencv_build/CMakeFiles/CMakeScratch/TryCompile-fV8g6L/int8.c:27:22: note: expanded from macro 'SIZE'
+#define SIZE (sizeof(INT8))
+                     ^
+/Users/lukehobeika/Desktop/Desktop/Projects/Harsha_Research_Lab/FastDash/thirdParty/opencv_build/CMakeFiles/CMakeScratch/TryCompile-fV8g6L/int8.c:33:12: error: use of undeclared identifier 'INT8'
+  ('0' +  (SIZE    % 10)),
+           ^
+/Users/lukehobeika/Desktop/Desktop/Projects/Harsha_Research_Lab/FastDash/thirdParty/opencv_build/CMakeFiles/CMakeScratch/TryCompile-fV8g6L/int8.c:27:22: note: expanded from macro 'SIZE'
+#define SIZE (sizeof(INT8))
+                     ^
+5 errors generated.
+make[1]: *** [CMakeFiles/cmTC_d259c.dir/int8.c.o] Error 1
+make: *** [cmTC_d259c/fast] Error 2
+
+
+int8.c:
+#include <sys/types.h>
+#include <stdint.h>
+#include <stddef.h>
+
+
+#undef KEY
+#if defined(__i386)
+# define KEY '_','_','i','3','8','6'
+#elif defined(__x86_64)
+# define KEY '_','_','x','8','6','_','6','4'
+#elif defined(__PPC64__)
+# define KEY '_','_','P','P','C','6','4','_','_'
+#elif defined(__ppc64__)
+# define KEY '_','_','p','p','c','6','4','_','_'
+#elif defined(__PPC__)
+# define KEY '_','_','P','P','C','_','_'
+#elif defined(__ppc__)
+# define KEY '_','_','p','p','c','_','_'
+#elif defined(__aarch64__)
+# define KEY '_','_','a','a','r','c','h','6','4','_','_'
+#elif defined(__ARM_ARCH_7A__)
+# define KEY '_','_','A','R','M','_','A','R','C','H','_','7','A','_','_'
+#elif defined(__ARM_ARCH_7S__)
+# define KEY '_','_','A','R','M','_','A','R','C','H','_','7','S','_','_'
+#endif
+
+#define SIZE (sizeof(INT8))
+static char info_size[] =  {'I', 'N', 'F', 'O', ':', 's','i','z','e','[',
+  ('0' + ((SIZE / 10000)%10)),
+  ('0' + ((SIZE / 1000)%10)),
+  ('0' + ((SIZE / 100)%10)),
+  ('0' + ((SIZE / 10)%10)),
+  ('0' +  (SIZE    % 10)),
+  ']',
+#ifdef KEY
+  ' ','k','e','y','[', KEY, ']',
+#endif
+  '\0'};
+
+#ifdef __CLASSIC_C__
+int main(argc, argv) int argc; char *argv[];
+#else
+int main(int argc, char *argv[])
+#endif
+{
+  int require = 0;
+  require += info_size[argc];
+  (void)argv;
+  return require;
+}
+
+
+Determining size of INT16 failed with the following output:
+Change Dir: /Users/lukehobeika/Desktop/Desktop/Projects/Harsha_Research_Lab/FastDash/thirdParty/opencv_build/CMakeFiles/CMakeScratch/TryCompile-KjZ6jj
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_cb601/fast && /Applications/Xcode.app/Contents/Developer/usr/bin/make  -f CMakeFiles/cmTC_cb601.dir/build.make CMakeFiles/cmTC_cb601.dir/build
+Building C object CMakeFiles/cmTC_cb601.dir/int16.c.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -fsigned-char -W -Wall -Wreturn-type -Wnon-virtual-dtor -Waddress -Wsequence-point -Wformat -Wformat-security -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wundef -Winit-self -Wpointer-arith -Wshadow -Wsign-promo -Wuninitialized -Wno-delete-non-virtual-dtor -Wno-unnamed-type-template-args -Wno-comment -fdiagnostics-show-option -Qunused-arguments -Wno-semicolon-before-method-body -ffunction-sections -fdata-sections    -fvisibility=hidden -fvisibility-inlines-hidden  -O3 -DNDEBUG  -DNDEBUG -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.1.sdk -mmacosx-version-min=12.5 -fPIE -MD -MT CMakeFiles/cmTC_cb601.dir/int16.c.o -MF CMakeFiles/cmTC_cb601.dir/int16.c.o.d -o CMakeFiles/cmTC_cb601.dir/int16.c.o -c /Users/lukehobeika/Desktop/Desktop/Projects/Harsha_Research_Lab/FastDash/thirdParty/opencv_build/CMakeFiles/CMakeScratch/TryCompile-KjZ6jj/int16.c
+/Users/lukehobeika/Desktop/Desktop/Projects/Harsha_Research_Lab/FastDash/thirdParty/opencv_build/CMakeFiles/CMakeScratch/TryCompile-KjZ6jj/int16.c:29:12: error: use of undeclared identifier 'INT16'
+  ('0' + ((SIZE / 10000)%10)),
+           ^
+/Users/lukehobeika/Desktop/Desktop/Projects/Harsha_Research_Lab/FastDash/thirdParty/opencv_build/CMakeFiles/CMakeScratch/TryCompile-KjZ6jj/int16.c:27:22: note: expanded from macro 'SIZE'
+#define SIZE (sizeof(INT16))
+                     ^
+/Users/lukehobeika/Desktop/Desktop/Projects/Harsha_Research_Lab/FastDash/thirdParty/opencv_build/CMakeFiles/CMakeScratch/TryCompile-KjZ6jj/int16.c:30:12: error: use of undeclared identifier 'INT16'
+  ('0' + ((SIZE / 1000)%10)),
+           ^
+/Users/lukehobeika/Desktop/Desktop/Projects/Harsha_Research_Lab/FastDash/thirdParty/opencv_build/CMakeFiles/CMakeScratch/TryCompile-KjZ6jj/int16.c:27:22: note: expanded from macro 'SIZE'
+#define SIZE (sizeof(INT16))
+                     ^
+/Users/lukehobeika/Desktop/Desktop/Projects/Harsha_Research_Lab/FastDash/thirdParty/opencv_build/CMakeFiles/CMakeScratch/TryCompile-KjZ6jj/int16.c:31:12: error: use of undeclared identifier 'INT16'
+  ('0' + ((SIZE / 100)%10)),
+           ^
+/Users/lukehobeika/Desktop/Desktop/Projects/Harsha_Research_Lab/FastDash/thirdParty/opencv_build/CMakeFiles/CMakeScratch/TryCompile-KjZ6jj/int16.c:27:22: note: expanded from macro 'SIZE'
+#define SIZE (sizeof(INT16))
+                     ^
+/Users/lukehobeika/Desktop/Desktop/Projects/Harsha_Research_Lab/FastDash/thirdParty/opencv_build/CMakeFiles/CMakeScratch/TryCompile-KjZ6jj/int16.c:32:12: error: use of undeclared identifier 'INT16'
+  ('0' + ((SIZE / 10)%10)),
+           ^
+/Users/lukehobeika/Desktop/Desktop/Projects/Harsha_Research_Lab/FastDash/thirdParty/opencv_build/CMakeFiles/CMakeScratch/TryCompile-KjZ6jj/int16.c:27:22: note: expanded from macro 'SIZE'
+#define SIZE (sizeof(INT16))
+                     ^
+/Users/lukehobeika/Desktop/Desktop/Projects/Harsha_Research_Lab/FastDash/thirdParty/opencv_build/CMakeFiles/CMakeScratch/TryCompile-KjZ6jj/int16.c:33:12: error: use of undeclared identifier 'INT16'
+  ('0' +  (SIZE    % 10)),
+           ^
+/Users/lukehobeika/Desktop/Desktop/Projects/Harsha_Research_Lab/FastDash/thirdParty/opencv_build/CMakeFiles/CMakeScratch/TryCompile-KjZ6jj/int16.c:27:22: note: expanded from macro 'SIZE'
+#define SIZE (sizeof(INT16))
+                     ^
+5 errors generated.
+make[1]: *** [CMakeFiles/cmTC_cb601.dir/int16.c.o] Error 1
+make: *** [cmTC_cb601/fast] Error 2
+
+
+int16.c:
+#include <sys/types.h>
+#include <stdint.h>
+#include <stddef.h>
+
+
+#undef KEY
+#if defined(__i386)
+# define KEY '_','_','i','3','8','6'
+#elif defined(__x86_64)
+# define KEY '_','_','x','8','6','_','6','4'
+#elif defined(__PPC64__)
+# define KEY '_','_','P','P','C','6','4','_','_'
+#elif defined(__ppc64__)
+# define KEY '_','_','p','p','c','6','4','_','_'
+#elif defined(__PPC__)
+# define KEY '_','_','P','P','C','_','_'
+#elif defined(__ppc__)
+# define KEY '_','_','p','p','c','_','_'
+#elif defined(__aarch64__)
+# define KEY '_','_','a','a','r','c','h','6','4','_','_'
+#elif defined(__ARM_ARCH_7A__)
+# define KEY '_','_','A','R','M','_','A','R','C','H','_','7','A','_','_'
+#elif defined(__ARM_ARCH_7S__)
+# define KEY '_','_','A','R','M','_','A','R','C','H','_','7','S','_','_'
+#endif
+
+#define SIZE (sizeof(INT16))
+static char info_size[] =  {'I', 'N', 'F', 'O', ':', 's','i','z','e','[',
+  ('0' + ((SIZE / 10000)%10)),
+  ('0' + ((SIZE / 1000)%10)),
+  ('0' + ((SIZE / 100)%10)),
+  ('0' + ((SIZE / 10)%10)),
+  ('0' +  (SIZE    % 10)),
+  ']',
+#ifdef KEY
+  ' ','k','e','y','[', KEY, ']',
+#endif
+  '\0'};
+
+#ifdef __CLASSIC_C__
+int main(argc, argv) int argc; char *argv[];
+#else
+int main(int argc, char *argv[])
+#endif
+{
+  int require = 0;
+  require += info_size[argc];
+  (void)argv;
+  return require;
+}
+
+
+Determining size of INT32 failed with the following output:
+Change Dir: /Users/lukehobeika/Desktop/Desktop/Projects/Harsha_Research_Lab/FastDash/thirdParty/opencv_build/CMakeFiles/CMakeScratch/TryCompile-ay8aRw
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_27a40/fast && /Applications/Xcode.app/Contents/Developer/usr/bin/make  -f CMakeFiles/cmTC_27a40.dir/build.make CMakeFiles/cmTC_27a40.dir/build
+Building C object CMakeFiles/cmTC_27a40.dir/int32.c.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -fsigned-char -W -Wall -Wreturn-type -Wnon-virtual-dtor -Waddress -Wsequence-point -Wformat -Wformat-security -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wundef -Winit-self -Wpointer-arith -Wshadow -Wsign-promo -Wuninitialized -Wno-delete-non-virtual-dtor -Wno-unnamed-type-template-args -Wno-comment -fdiagnostics-show-option -Qunused-arguments -Wno-semicolon-before-method-body -ffunction-sections -fdata-sections    -fvisibility=hidden -fvisibility-inlines-hidden  -O3 -DNDEBUG  -DNDEBUG -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.1.sdk -mmacosx-version-min=12.5 -fPIE -MD -MT CMakeFiles/cmTC_27a40.dir/int32.c.o -MF CMakeFiles/cmTC_27a40.dir/int32.c.o.d -o CMakeFiles/cmTC_27a40.dir/int32.c.o -c /Users/lukehobeika/Desktop/Desktop/Projects/Harsha_Research_Lab/FastDash/thirdParty/opencv_build/CMakeFiles/CMakeScratch/TryCompile-ay8aRw/int32.c
+/Users/lukehobeika/Desktop/Desktop/Projects/Harsha_Research_Lab/FastDash/thirdParty/opencv_build/CMakeFiles/CMakeScratch/TryCompile-ay8aRw/int32.c:29:12: error: use of undeclared identifier 'INT32'
+  ('0' + ((SIZE / 10000)%10)),
+           ^
+/Users/lukehobeika/Desktop/Desktop/Projects/Harsha_Research_Lab/FastDash/thirdParty/opencv_build/CMakeFiles/CMakeScratch/TryCompile-ay8aRw/int32.c:27:22: note: expanded from macro 'SIZE'
+#define SIZE (sizeof(INT32))
+                     ^
+/Users/lukehobeika/Desktop/Desktop/Projects/Harsha_Research_Lab/FastDash/thirdParty/opencv_build/CMakeFiles/CMakeScratch/TryCompile-ay8aRw/int32.c:30:12: error: use of undeclared identifier 'INT32'
+  ('0' + ((SIZE / 1000)%10)),
+           ^
+/Users/lukehobeika/Desktop/Desktop/Projects/Harsha_Research_Lab/FastDash/thirdParty/opencv_build/CMakeFiles/CMakeScratch/TryCompile-ay8aRw/int32.c:27:22: note: expanded from macro 'SIZE'
+#define SIZE (sizeof(INT32))
+                     ^
+/Users/lukehobeika/Desktop/Desktop/Projects/Harsha_Research_Lab/FastDash/thirdParty/opencv_build/CMakeFiles/CMakeScratch/TryCompile-ay8aRw/int32.c:31:12: error: use of undeclared identifier 'INT32'
+  ('0' + ((SIZE / 100)%10)),
+           ^
+/Users/lukehobeika/Desktop/Desktop/Projects/Harsha_Research_Lab/FastDash/thirdParty/opencv_build/CMakeFiles/CMakeScratch/TryCompile-ay8aRw/int32.c:27:22: note: expanded from macro 'SIZE'
+#define SIZE (sizeof(INT32))
+                     ^
+/Users/lukehobeika/Desktop/Desktop/Projects/Harsha_Research_Lab/FastDash/thirdParty/opencv_build/CMakeFiles/CMakeScratch/TryCompile-ay8aRw/int32.c:32:12: error: use of undeclared identifier 'INT32'
+  ('0' + ((SIZE / 10)%10)),
+           ^
+/Users/lukehobeika/Desktop/Desktop/Projects/Harsha_Research_Lab/FastDash/thirdParty/opencv_build/CMakeFiles/CMakeScratch/TryCompile-ay8aRw/int32.c:27:22: note: expanded from macro 'SIZE'
+#define SIZE (sizeof(INT32))
+                     ^
+/Users/lukehobeika/Desktop/Desktop/Projects/Harsha_Research_Lab/FastDash/thirdParty/opencv_build/CMakeFiles/CMakeScratch/TryCompile-ay8aRw/int32.c:33:12: error: use of undeclared identifier 'INT32'
+  ('0' +  (SIZE    % 10)),
+           ^
+/Users/lukehobeika/Desktop/Desktop/Projects/Harsha_Research_Lab/FastDash/thirdParty/opencv_build/CMakeFiles/CMakeScratch/TryCompile-ay8aRw/int32.c:27:22: note: expanded from macro 'SIZE'
+#define SIZE (sizeof(INT32))
+                     ^
+5 errors generated.
+make[1]: *** [CMakeFiles/cmTC_27a40.dir/int32.c.o] Error 1
+make: *** [cmTC_27a40/fast] Error 2
+
+
+int32.c:
+#include <sys/types.h>
+#include <stdint.h>
+#include <stddef.h>
+
+
+#undef KEY
+#if defined(__i386)
+# define KEY '_','_','i','3','8','6'
+#elif defined(__x86_64)
+# define KEY '_','_','x','8','6','_','6','4'
+#elif defined(__PPC64__)
+# define KEY '_','_','P','P','C','6','4','_','_'
+#elif defined(__ppc64__)
+# define KEY '_','_','p','p','c','6','4','_','_'
+#elif defined(__PPC__)
+# define KEY '_','_','P','P','C','_','_'
+#elif defined(__ppc__)
+# define KEY '_','_','p','p','c','_','_'
+#elif defined(__aarch64__)
+# define KEY '_','_','a','a','r','c','h','6','4','_','_'
+#elif defined(__ARM_ARCH_7A__)
+# define KEY '_','_','A','R','M','_','A','R','C','H','_','7','A','_','_'
+#elif defined(__ARM_ARCH_7S__)
+# define KEY '_','_','A','R','M','_','A','R','C','H','_','7','S','_','_'
+#endif
+
+#define SIZE (sizeof(INT32))
+static char info_size[] =  {'I', 'N', 'F', 'O', ':', 's','i','z','e','[',
+  ('0' + ((SIZE / 10000)%10)),
+  ('0' + ((SIZE / 1000)%10)),
+  ('0' + ((SIZE / 100)%10)),
+  ('0' + ((SIZE / 10)%10)),
+  ('0' +  (SIZE    % 10)),
+  ']',
+#ifdef KEY
+  ' ','k','e','y','[', KEY, ']',
+#endif
+  '\0'};
+
+#ifdef __CLASSIC_C__
+int main(argc, argv) int argc; char *argv[];
+#else
+int main(int argc, char *argv[])
+#endif
+{
+  int require = 0;
+  require += info_size[argc];
+  (void)argv;
+  return require;
+}
+
+
+Build output check failed:
+    Regex: 'unknown .*option'
+    Output line: 'warning: unknown warning option '-Wno-maybe-uninitialized', did you mean '-Wno-uninitialized'? [-Wunknown-warning-option]'
+Compilation failed:
+    source file: '/Users/lukehobeika/Desktop/Desktop/Projects/Harsha_Research_Lab/FastDash/thirdParty/opencv_build/CMakeFiles/CMakeTmp/src.c'
+    check option: ' -Wno-maybe-uninitialized'
+===== BUILD LOG =====
+Change Dir: /Users/lukehobeika/Desktop/Desktop/Projects/Harsha_Research_Lab/FastDash/thirdParty/opencv_build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_ed329/fast && /Applications/Xcode.app/Contents/Developer/usr/bin/make  -f CMakeFiles/cmTC_ed329.dir/build.make CMakeFiles/cmTC_ed329.dir/build
+Building C object CMakeFiles/cmTC_ed329.dir/src.c.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -fsigned-char -W -Wall -Wreturn-type -Wnon-virtual-dtor -Waddress -Wsequence-point -Wformat -Wformat-security -Wstrict-prototypes -Winit-self -Wpointer-arith -Wsign-promo -Wuninitialized -Wno-delete-non-virtual-dtor -Wno-unnamed-type-template-args -Wno-comment -fdiagnostics-show-option -Qunused-arguments -Wno-semicolon-before-method-body -ffunction-sections -fdata-sections    -fvisibility=hidden -fvisibility-inlines-hidden -Wno-unused-but-set-variable -Wno-missing-prototypes -Wno-missing-declarations -Wno-undef -Wno-unused -Wno-sign-compare -Wno-cast-align -Wno-shadow  -O3 -DNDEBUG  -DNDEBUG -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.1.sdk -mmacosx-version-min=12.5 -fPIE    -Wno-maybe-uninitialized -MD -MT CMakeFiles/cmTC_ed329.dir/src.c.o -MF CMakeFiles/cmTC_ed329.dir/src.c.o.d -o CMakeFiles/cmTC_ed329.dir/src.c.o -c /Users/lukehobeika/Desktop/Desktop/Projects/Harsha_Research_Lab/FastDash/thirdParty/opencv_build/CMakeFiles/CMakeTmp/src.c
+warning: unknown warning option '-Wno-maybe-uninitialized'; did you mean '-Wno-uninitialized'? [-Wunknown-warning-option]
+/Users/lukehobeika/Desktop/Desktop/Projects/Harsha_Research_Lab/FastDash/thirdParty/opencv_build/CMakeFiles/CMakeTmp/src.c:1:8: warning: unknown pragma ignored [-Wunknown-pragmas]
+#pragma
+       ^
+2 warnings generated.
+Linking C executable cmTC_ed329
+/Applications/CMake.app/Contents/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ed329.dir/link.txt --verbose=1
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc    -fsigned-char -W -Wall -Wreturn-type -Wnon-virtual-dtor -Waddress -Wsequence-point -Wformat -Wformat-security -Wstrict-prototypes -Winit-self -Wpointer-arith -Wsign-promo -Wuninitialized -Wno-delete-non-virtual-dtor -Wno-unnamed-type-template-args -Wno-comment -fdiagnostics-show-option -Qunused-arguments -Wno-semicolon-before-method-body -ffunction-sections -fdata-sections    -fvisibility=hidden -fvisibility-inlines-hidden -Wno-unused-but-set-variable -Wno-missing-prototypes -Wno-missing-declarations -Wno-undef -Wno-unused -Wno-sign-compare -Wno-cast-align -Wno-shadow  -O3 -DNDEBUG  -DNDEBUG -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.1.sdk -mmacosx-version-min=12.5 -Wl,-search_paths_first -Wl,-headerpad_max_install_names   -Wl,-dead_strip  CMakeFiles/cmTC_ed329.dir/src.c.o -o cmTC_ed329 
+
+
+===== END =====
+
+Build output check failed:
+    Regex: 'unknown .*option'
+    Output line: 'warning: unknown warning option '-Wno-array-parameter', did you mean '-Wno-unused-parameter'? [-Wunknown-warning-option]'
+Compilation failed:
+    source file: '/Users/lukehobeika/Desktop/Desktop/Projects/Harsha_Research_Lab/FastDash/thirdParty/opencv_build/CMakeFiles/CMakeTmp/src.c'
+    check option: ' -Wno-array-parameter'
+===== BUILD LOG =====
+Change Dir: /Users/lukehobeika/Desktop/Desktop/Projects/Harsha_Research_Lab/FastDash/thirdParty/opencv_build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_c9887/fast && /Applications/Xcode.app/Contents/Developer/usr/bin/make  -f CMakeFiles/cmTC_c9887.dir/build.make CMakeFiles/cmTC_c9887.dir/build
+Building C object CMakeFiles/cmTC_c9887.dir/src.c.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -fsigned-char -W -Wall -Wreturn-type -Wnon-virtual-dtor -Waddress -Wsequence-point -Wformat -Wformat-security -Wstrict-prototypes -Winit-self -Wpointer-arith -Wsign-promo -Wuninitialized -Wno-delete-non-virtual-dtor -Wno-unnamed-type-template-args -Wno-comment -fdiagnostics-show-option -Qunused-arguments -Wno-semicolon-before-method-body -ffunction-sections -fdata-sections    -fvisibility=hidden -fvisibility-inlines-hidden -Wno-unused-but-set-variable -Wno-missing-prototypes -Wno-missing-declarations -Wno-undef -Wno-unused -Wno-sign-compare -Wno-cast-align -Wno-shadow -Wno-pointer-to-int-cast -Wno-int-to-pointer-cast -Wno-misleading-indentation -Wno-implicit-fallthrough -Wno-unused-parameter  -O3 -DNDEBUG  -DNDEBUG -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.1.sdk -mmacosx-version-min=12.5 -fPIE    -Wno-array-parameter -MD -MT CMakeFiles/cmTC_c9887.dir/src.c.o -MF CMakeFiles/cmTC_c9887.dir/src.c.o.d -o CMakeFiles/cmTC_c9887.dir/src.c.o -c /Users/lukehobeika/Desktop/Desktop/Projects/Harsha_Research_Lab/FastDash/thirdParty/opencv_build/CMakeFiles/CMakeTmp/src.c
+warning: unknown warning option '-Wno-array-parameter'; did you mean '-Wno-unused-parameter'? [-Wunknown-warning-option]
+/Users/lukehobeika/Desktop/Desktop/Projects/Harsha_Research_Lab/FastDash/thirdParty/opencv_build/CMakeFiles/CMakeTmp/src.c:1:8: warning: unknown pragma ignored [-Wunknown-pragmas]
+#pragma
+       ^
+2 warnings generated.
+Linking C executable cmTC_c9887
+/Applications/CMake.app/Contents/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c9887.dir/link.txt --verbose=1
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc    -fsigned-char -W -Wall -Wreturn-type -Wnon-virtual-dtor -Waddress -Wsequence-point -Wformat -Wformat-security -Wstrict-prototypes -Winit-self -Wpointer-arith -Wsign-promo -Wuninitialized -Wno-delete-non-virtual-dtor -Wno-unnamed-type-template-args -Wno-comment -fdiagnostics-show-option -Qunused-arguments -Wno-semicolon-before-method-body -ffunction-sections -fdata-sections    -fvisibility=hidden -fvisibility-inlines-hidden -Wno-unused-but-set-variable -Wno-missing-prototypes -Wno-missing-declarations -Wno-undef -Wno-unused -Wno-sign-compare -Wno-cast-align -Wno-shadow -Wno-pointer-to-int-cast -Wno-int-to-pointer-cast -Wno-misleading-indentation -Wno-implicit-fallthrough -Wno-unused-parameter  -O3 -DNDEBUG  -DNDEBUG -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.1.sdk -mmacosx-version-min=12.5 -Wl,-search_paths_first -Wl,-headerpad_max_install_names   -Wl,-dead_strip  CMakeFiles/cmTC_c9887.dir/src.c.o -o cmTC_c9887 
+
+
+===== END =====
+
+Determining if files malloc.h exist failed with the following output:
+Change Dir: /Users/lukehobeika/Desktop/Desktop/Projects/Harsha_Research_Lab/FastDash/thirdParty/opencv_build/CMakeFiles/CMakeScratch/TryCompile-SAPYX4
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_aa217/fast && /Applications/Xcode.app/Contents/Developer/usr/bin/make  -f CMakeFiles/cmTC_aa217.dir/build.make CMakeFiles/cmTC_aa217.dir/build
+Building C object CMakeFiles/cmTC_aa217.dir/OPJ_HAVE_MALLOC_H.c.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -fsigned-char -W -Wall -Wreturn-type -Wnon-virtual-dtor -Waddress -Wsequence-point -Wformat -Wformat-security -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wundef -Winit-self -Wpointer-arith -Wshadow -Wsign-promo -Wuninitialized -Wno-delete-non-virtual-dtor -Wno-unnamed-type-template-args -Wno-comment -fdiagnostics-show-option -Qunused-arguments -Wno-semicolon-before-method-body -ffunction-sections -fdata-sections    -fvisibility=hidden -fvisibility-inlines-hidden -Wno-implicit-const-int-float-conversion -Wno-unused-but-set-variable  -O3 -DNDEBUG  -DNDEBUG -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.1.sdk -mmacosx-version-min=12.5 -fPIE -MD -MT CMakeFiles/cmTC_aa217.dir/OPJ_HAVE_MALLOC_H.c.o -MF CMakeFiles/cmTC_aa217.dir/OPJ_HAVE_MALLOC_H.c.o.d -o CMakeFiles/cmTC_aa217.dir/OPJ_HAVE_MALLOC_H.c.o -c /Users/lukehobeika/Desktop/Desktop/Projects/Harsha_Research_Lab/FastDash/thirdParty/opencv_build/CMakeFiles/CMakeScratch/TryCompile-SAPYX4/OPJ_HAVE_MALLOC_H.c
+/Users/lukehobeika/Desktop/Desktop/Projects/Harsha_Research_Lab/FastDash/thirdParty/opencv_build/CMakeFiles/CMakeScratch/TryCompile-SAPYX4/OPJ_HAVE_MALLOC_H.c:2:10: fatal error: 'malloc.h' file not found
+#include <malloc.h>
+         ^~~~~~~~~~
+1 error generated.
+make[1]: *** [CMakeFiles/cmTC_aa217.dir/OPJ_HAVE_MALLOC_H.c.o] Error 1
+make: *** [cmTC_aa217/fast] Error 2
+
+
+Source:
+/* */
+#include <malloc.h>
+
+
+int main(void){return 0;}
+
+Determining if the _aligned_malloc exist failed with the following output:
+Change Dir: /Users/lukehobeika/Desktop/Desktop/Projects/Harsha_Research_Lab/FastDash/thirdParty/opencv_build/CMakeFiles/CMakeScratch/TryCompile-CDvFEO
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_a4ba9/fast && /Applications/Xcode.app/Contents/Developer/usr/bin/make  -f CMakeFiles/cmTC_a4ba9.dir/build.make CMakeFiles/cmTC_a4ba9.dir/build
+Building C object CMakeFiles/cmTC_a4ba9.dir/CheckSymbolExists.c.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -fsigned-char -W -Wall -Wreturn-type -Wnon-virtual-dtor -Waddress -Wsequence-point -Wformat -Wformat-security -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wundef -Winit-self -Wpointer-arith -Wshadow -Wsign-promo -Wuninitialized -Wno-delete-non-virtual-dtor -Wno-unnamed-type-template-args -Wno-comment -fdiagnostics-show-option -Qunused-arguments -Wno-semicolon-before-method-body -ffunction-sections -fdata-sections    -fvisibility=hidden -fvisibility-inlines-hidden -Wno-implicit-const-int-float-conversion -Wno-unused-but-set-variable  -O3 -DNDEBUG  -DNDEBUG -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.1.sdk -mmacosx-version-min=12.5 -fPIE -MD -MT CMakeFiles/cmTC_a4ba9.dir/CheckSymbolExists.c.o -MF CMakeFiles/cmTC_a4ba9.dir/CheckSymbolExists.c.o.d -o CMakeFiles/cmTC_a4ba9.dir/CheckSymbolExists.c.o -c /Users/lukehobeika/Desktop/Desktop/Projects/Harsha_Research_Lab/FastDash/thirdParty/opencv_build/CMakeFiles/CMakeScratch/TryCompile-CDvFEO/CheckSymbolExists.c
+/Users/lukehobeika/Desktop/Desktop/Projects/Harsha_Research_Lab/FastDash/thirdParty/opencv_build/CMakeFiles/CMakeScratch/TryCompile-CDvFEO/CheckSymbolExists.c:2:10: fatal error: 'malloc.h' file not found
+#include <malloc.h>
+         ^~~~~~~~~~
+1 error generated.
+make[1]: *** [CMakeFiles/cmTC_a4ba9.dir/CheckSymbolExists.c.o] Error 1
+make: *** [cmTC_a4ba9/fast] Error 2
+
+
+File CheckSymbolExists.c:
+/* */
+#include <malloc.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef _aligned_malloc
+  return ((int*)(&_aligned_malloc))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the memalign exist failed with the following output:
+Change Dir: /Users/lukehobeika/Desktop/Desktop/Projects/Harsha_Research_Lab/FastDash/thirdParty/opencv_build/CMakeFiles/CMakeScratch/TryCompile-eSGoFq
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_69f96/fast && /Applications/Xcode.app/Contents/Developer/usr/bin/make  -f CMakeFiles/cmTC_69f96.dir/build.make CMakeFiles/cmTC_69f96.dir/build
+Building C object CMakeFiles/cmTC_69f96.dir/CheckSymbolExists.c.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -fsigned-char -W -Wall -Wreturn-type -Wnon-virtual-dtor -Waddress -Wsequence-point -Wformat -Wformat-security -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wundef -Winit-self -Wpointer-arith -Wshadow -Wsign-promo -Wuninitialized -Wno-delete-non-virtual-dtor -Wno-unnamed-type-template-args -Wno-comment -fdiagnostics-show-option -Qunused-arguments -Wno-semicolon-before-method-body -ffunction-sections -fdata-sections    -fvisibility=hidden -fvisibility-inlines-hidden -Wno-implicit-const-int-float-conversion -Wno-unused-but-set-variable  -O3 -DNDEBUG  -DNDEBUG -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.1.sdk -mmacosx-version-min=12.5 -fPIE -MD -MT CMakeFiles/cmTC_69f96.dir/CheckSymbolExists.c.o -MF CMakeFiles/cmTC_69f96.dir/CheckSymbolExists.c.o.d -o CMakeFiles/cmTC_69f96.dir/CheckSymbolExists.c.o -c /Users/lukehobeika/Desktop/Desktop/Projects/Harsha_Research_Lab/FastDash/thirdParty/opencv_build/CMakeFiles/CMakeScratch/TryCompile-eSGoFq/CheckSymbolExists.c
+/Users/lukehobeika/Desktop/Desktop/Projects/Harsha_Research_Lab/FastDash/thirdParty/opencv_build/CMakeFiles/CMakeScratch/TryCompile-eSGoFq/CheckSymbolExists.c:2:10: fatal error: 'malloc.h' file not found
+#include <malloc.h>
+         ^~~~~~~~~~
+1 error generated.
+make[1]: *** [CMakeFiles/cmTC_69f96.dir/CheckSymbolExists.c.o] Error 1
+make: *** [cmTC_69f96/fast] Error 2
+
+
+File CheckSymbolExists.c:
+/* */
+#include <malloc.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef memalign
+  return ((int*)(&memalign))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the function sgemm_ exists failed with the following output:
+Change Dir: /Users/lukehobeika/Desktop/Desktop/Projects/Harsha_Research_Lab/FastDash/thirdParty/opencv_build/CMakeFiles/CMakeScratch/TryCompile-Xf9HpH
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_7767a/fast && /Applications/Xcode.app/Contents/Developer/usr/bin/make  -f CMakeFiles/cmTC_7767a.dir/build.make CMakeFiles/cmTC_7767a.dir/build
+Building C object CMakeFiles/cmTC_7767a.dir/CheckFunctionExists.c.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -fsigned-char -W -Wall -Wreturn-type -Wnon-virtual-dtor -Waddress -Wsequence-point -Wformat -Wformat-security -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wundef -Winit-self -Wpointer-arith -Wshadow -Wsign-promo -Wuninitialized -Wno-delete-non-virtual-dtor -Wno-unnamed-type-template-args -Wno-comment -fdiagnostics-show-option -Qunused-arguments -Wno-semicolon-before-method-body -ffunction-sections -fdata-sections    -fvisibility=hidden -fvisibility-inlines-hidden -DCHECK_FUNCTION_EXISTS=sgemm_ -O3 -DNDEBUG  -DNDEBUG -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.1.sdk -mmacosx-version-min=12.5 -fPIE -MD -MT CMakeFiles/cmTC_7767a.dir/CheckFunctionExists.c.o -MF CMakeFiles/cmTC_7767a.dir/CheckFunctionExists.c.o.d -o CMakeFiles/cmTC_7767a.dir/CheckFunctionExists.c.o -c /Users/lukehobeika/Desktop/Desktop/Projects/Harsha_Research_Lab/FastDash/thirdParty/opencv_build/CMakeFiles/CMakeScratch/TryCompile-Xf9HpH/CheckFunctionExists.c
+Linking C executable cmTC_7767a
+/Applications/CMake.app/Contents/bin/cmake -E cmake_link_script CMakeFiles/cmTC_7767a.dir/link.txt --verbose=1
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc    -fsigned-char -W -Wall -Wreturn-type -Wnon-virtual-dtor -Waddress -Wsequence-point -Wformat -Wformat-security -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wundef -Winit-self -Wpointer-arith -Wshadow -Wsign-promo -Wuninitialized -Wno-delete-non-virtual-dtor -Wno-unnamed-type-template-args -Wno-comment -fdiagnostics-show-option -Qunused-arguments -Wno-semicolon-before-method-body -ffunction-sections -fdata-sections    -fvisibility=hidden -fvisibility-inlines-hidden -DCHECK_FUNCTION_EXISTS=sgemm_ -O3 -DNDEBUG  -DNDEBUG -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.1.sdk -mmacosx-version-min=12.5 -Wl,-search_paths_first -Wl,-headerpad_max_install_names   -Wl,-dead_strip  CMakeFiles/cmTC_7767a.dir/CheckFunctionExists.c.o -o cmTC_7767a 
+Undefined symbols for architecture arm64:
+  "_sgemm_", referenced from:
+      _main in CheckFunctionExists.c.o
+ld: symbol(s) not found for architecture arm64
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+make[1]: *** [cmTC_7767a] Error 1
+make: *** [cmTC_7767a/fast] Error 2
+
+
+
