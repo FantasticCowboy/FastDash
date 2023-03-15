@@ -5,10 +5,15 @@
 #include <vector>
 #include <string>
 
+
+
+
 typedef struct{
     float diff;
     uint32_t xPos;
     uint32_t yPos;
+
+    
 }DeltaEncodedPixel;
 
 

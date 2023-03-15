@@ -1,4 +1,8 @@
-FROM ubuntu:18.04
+# LTS version of ubuntu that will stop recieving support in 2032
+# changed from 18.04 to this because 18.04 had the wrong version of 
+# c++ installed
+FROM ubuntu:22.04
+
 
 ENV DEBIAN_FRONTEND=noninteractive
 
@@ -29,7 +33,11 @@ RUN sed -i 's/\<sudo -H\>//g' install_deps.sh; \
 
 WORKDIR /openpose/build
 
+
+
 # Downloads all available models. You can reduce image size by being more selective.
+# TODO: I need to edit this list such that the cmake flags are updated to the new
+# version of open pose
 RUN cmake -DGPU_MODE:String=CPU_ONLY \
           -DOWNLOAD_BODY_25_MODEL:Bool=ON \
           -DDOWNLOAD_BODY_MPI_MODEL:Bool=ON \
@@ -39,10 +47,30 @@ RUN cmake -DGPU_MODE:String=CPU_ONLY \
           -DUSE_MKL:Bool=OFF \
           ..
 
+# Install g++ - likely do not need this later on, should just learn how to use cmake
+RUN apt-get install g++=4:11.2.0-1ubuntu1
+
 # you may find that you need to adjust this.
 RUN make -j$((`nproc`+1))
 
 RUN apt-get remove wget unzip cmake git build-essential -y && apt-get autoremove -y
 
-WORKDIR /openpose
+# moves the header files to /usr/include in order to make sure that
+# g++ can locate the files
+RUN mv /openpose/include/* /usr/local/include
+RUN mv /openpose/build/src/openpose/ /usr/local/lib
 
+# moves the open cv files as all the libs reference it using <opencv2/HEADER_FILE_NAME>
+RUN mv /usr/include/opencv4/opencv2 /usr/include
+
+
+# required for openpose c++ api
+RUN apt-get install libgflags-dev
+
+# allows you to run openpose anywhere similar to ls or grep
+RUN mv /openpose/build/examples/openpose/openpose.bin /usr/bin/
+RUN mv /usr/bin/openpose.bin /usr/bin/openpose
+
+
+
+WORKDIR /openpose

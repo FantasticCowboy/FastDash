@@ -6,6 +6,7 @@ using std::cout;
 using std::vector;
 
 
+
 // DESCRIPTION: Opens file and returns the correspond fstream. 
 // makes sure that the file can be opened
 // TODO: better error handling - nuking the whole program seems like bad practice in this case
@@ -19,6 +20,7 @@ std::fstream openFile(std::string fileName){
     }
     return fs;
 }
+
 
 // TODO: need to look into preallocating the vector memory as resizing the vector dynamically
 // may lead to performance issues

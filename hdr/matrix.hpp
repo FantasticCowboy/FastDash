@@ -6,6 +6,8 @@ array<float, 4> multiplyAndHomgenize(array<float,4> vec, array<array<float,4>, 4
     array<float, 4> out;
 
     int i = 0;
+
+    
     for(auto row : mat){
         out[i] = row[0] * vec[0] + row[1] * vec[1] +row[2] * vec[2] + row[3] * vec[3];
         i++;

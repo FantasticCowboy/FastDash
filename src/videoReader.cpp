@@ -30,7 +30,7 @@ bool videoReader::hasNextFrame(){
 vector<vector<float>> videoReader::getNextFrame(){
     vector<vector<float>> ret;
     if(!std::filesystem::exists(getFileName())){
-        throw std::runtime_error("No next file exists!");
+        throw std::runtime_error("No next file exists!" + getFileName());
     }
     if(prevFrame.empty()){
         prevFrame = readDepthFrame(width, height, getFileName());
