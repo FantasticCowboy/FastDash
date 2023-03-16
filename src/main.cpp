@@ -4,6 +4,8 @@
 #include <string>
 #include <array>
 #include <vector>
+#include <gflags/gflags.h>
+#include <gflags/gflags_completions.h>
 
 string prefix = "./test/testDeltaEncodedFiles/delta_encoding_raw_data/";
 string uid0 = "0";
@@ -13,7 +15,6 @@ string uid3 = "3";
 
 using std::array;
 using std::vector;
-
 
 array<array< float,4> , 4 > transformMatrix0 = { {
     {{0.36397	,0.00000,	0.00000,	0.00000}},
@@ -75,8 +76,9 @@ static screenToWorldTransformation screenToWorldtransformation3(transformMatrix3
 static int height = 1080;
 static int width = 1920;
 static int numFrames = 24;
-int main(){
+int main(int argc, char *argv[]){
     std::cout << "Starting program..." << std::endl;
+    gflags::ParseCommandLineFlags(&argc, &argv, true);    
     videoReader reader0(prefix + uid0, 1080, 1920);
     videoReader reader1(prefix + uid1, 1080, 1920);
     videoReader reader2(prefix + uid2, 1080, 1920);

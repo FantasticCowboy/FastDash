@@ -1,4 +1,6 @@
 # Makefile for this project
+# TODO: need to make make file more system agnostic e.g not assum taht people have librarys installed in usr/local/include 
+# TODO: eigen has an issue with compilation, so I had to remove the -Werror falg from compiler options. I should not need to do this.
 srcPrefix = src/
 buildPrefix = build/
 testPrefix = test/
@@ -11,7 +13,7 @@ testFiles := $(foreach file,$(testFiles),$(patsubst $(srcPrefix)$(testPrefix)%.c
 objectFiles := $(foreach file,$(srcFiles),$(patsubst $(srcPrefix)%.cpp,$(buildPrefix)%.o,$(file)))
 dependencies := $(foreach file,$(srcFiles),$(patsubst $(srcPrefix)%.cpp,$(buildPrefix)%.d,$(file)))
 
-compilerOptions = -I ./hdr -I ./thirdParty -Wall -Werror -lopenpose -lgflags
+compilerOptions = -std=c++17 -I ./hdr -I ./thirdParty -I /usr/include/eigen3 -Wall  -lopenpose -lgflags 
 
 # includes other make file rules
 -include $(dependencies)

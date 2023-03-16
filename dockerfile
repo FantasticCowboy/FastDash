@@ -58,7 +58,7 @@ RUN apt-get remove wget unzip cmake git build-essential -y && apt-get autoremove
 # moves the header files to /usr/include in order to make sure that
 # g++ can locate the files
 RUN mv /openpose/include/* /usr/local/include
-RUN mv /openpose/build/src/openpose/ /usr/local/lib
+RUN mv /openpose/build/src/openpose/libopenpose.so /openpose/build/src/openpose/libopenpose.so.1.7.0 /usr/local/lib
 
 # moves the open cv files as all the libs reference it using <opencv2/HEADER_FILE_NAME>
 RUN mv /usr/include/opencv4/opencv2 /usr/include
@@ -71,6 +71,17 @@ RUN apt-get install libgflags-dev
 RUN mv /openpose/build/examples/openpose/openpose.bin /usr/bin/
 RUN mv /usr/bin/openpose.bin /usr/bin/openpose
 
+# install curl
+RUN apt install curl
 
+# install json parsing library
+RUN mkdir /usr/local/include/nlohmann
+RUN touch /usr/local/include/nlohmann/json.hpp
+RUN curl https://raw.githubusercontent.com/nlohmann/json/9d69186291aca4f0137b69c1dee313b391ff564c/include/nlohmann/json.hpp > /usr/local/include/nlohmann/json.hpp
+
+
+
+# install eigen matrix library
+RUN apt-get install libeigen3-dev
 
 WORKDIR /openpose
