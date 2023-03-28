@@ -1,5 +1,4 @@
-#ifndef READDEPTHFRAME
-#define READDEPTHFRAME
+#pragma once
 
 #include <cstdint>
 #include <vector>
@@ -36,6 +35,4 @@ std::vector<DeltaEncodedPixel> readDepthEncoding(std::string fileName);
 // DESCRIPTION: Constructs the orignal depth frame from the pervious depth frame and the diff
 // REQUIRES: prevFrame is not empty
 // EFFECTS: returned vector is encoded depth frame
-std::vector<std::vector<float>> reconstructFrame(std::vector<std::vector<float>> prevFrame, std::vector<DeltaEncodedPixel> diff);
-
-#endif
+std::vector<std::vector<float>> reconstructFrame(std::vector<std::vector<float>> &prevFrame, std::vector<DeltaEncodedPixel> &diff);

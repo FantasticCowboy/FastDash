@@ -1,6 +1,4 @@
-#ifndef VIDEOREADER
-#define VIDEOREADER
-
+#pragma once
 #include <string>
 #include <vector> 
 using std::vector;
@@ -30,5 +28,3 @@ class videoReader{
         // DESCRIPTION: checks to see if the next frame can be read
         bool hasNextFrame();
 };
-
-#endif

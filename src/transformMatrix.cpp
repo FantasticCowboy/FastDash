@@ -43,9 +43,7 @@ void transformMatrix4f::operator=(const transformMatrix4f &lhs){
 
 void transformMatrix4f::multiplyVec4f(array<float,4> &vec) const{
     Vector4f v;
-    for(auto num : vec){
-        v << num;
-    }    
+    v << vec[0],vec[1],vec[2],vec[3];
 
     v = mat * v;
     vec[0] = v[0];

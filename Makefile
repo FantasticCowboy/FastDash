@@ -13,7 +13,7 @@ testFiles := $(foreach file,$(testFiles),$(patsubst $(srcPrefix)$(testPrefix)%.c
 objectFiles := $(foreach file,$(srcFiles),$(patsubst $(srcPrefix)%.cpp,$(buildPrefix)%.o,$(file)))
 dependencies := $(foreach file,$(srcFiles),$(patsubst $(srcPrefix)%.cpp,$(buildPrefix)%.d,$(file)))
 
-compilerOptions = -std=c++17 -I ./hdr -I ./thirdParty -I /usr/include/eigen3 -Wall  -lopenpose -lgflags 
+compilerOptions = -g3 -std=c++17 -I ./hdr -I ./thirdParty -I /usr/include/eigen3 -Wall  -lopenpose -lgflags 
 
 # includes other make file rules
 -include $(dependencies)
@@ -28,10 +28,10 @@ $(objectFiles): %.o : %.d
 	g++ -c -o $@ $(compilerOptions) $(patsubst $(buildPrefix)%.o, $(srcPrefix)%.cpp, $@)
 
 # -MM flag spits out all of the non system dependencies, may need to change to M to get all of the system dependencies
-$(dependencies): $(buildPrefix)%.d : %.cpp 
+$(dependencies): $(buildPrefix)%.d : %.cpp
 	echo $^
 	g++ -MM $^ $(compilerOptions) |\
-	sed 's/$(patsubst $(srcPrefix)%.cpp,%.o,$^)/$(patsubst $(srcPrefix)%.cpp,%.o,$^) $(patsubst $(srcPrefix)%.cpp,%.d,$^)/g' > $@
+	sed 's/$(patsubst $(srcPrefix)%.cpp,%.o,$^)/$(patsubst $(srcPrefix)%.cpp,build\/%.o,$^) $(patsubst $(srcPrefix)%.cpp,build\/%.d,$^)/g' > $@
 
 # export LD_LIBRARY_PATH is needed to make sure that the loader finds openpose
 # $$ becomes $ in make
@@ -58,7 +58,7 @@ $(buildPrefix)test/% : $(objectFiles) $(srcPrefix)/test/%.cpp
 
 
 print:
-	echo $(testFiles)
+	echo $(dependencies)
 
 all: $(objectFiles) $(buildPrefix)FastDash
 

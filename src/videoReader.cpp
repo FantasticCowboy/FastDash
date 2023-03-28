@@ -37,7 +37,8 @@ vector<vector<float>> videoReader::getNextFrame(){
         // deep copy all good
         ret = prevFrame;
     }else{
-        ret = reconstructFrame(prevFrame, readDepthEncoding(getFileName()));
+        std::vector<DeltaEncodedPixel> diff = readDepthEncoding(getFileName());
+        ret = reconstructFrame(prevFrame, diff);
         prevFrame = ret;
     }
 
