@@ -7,25 +7,16 @@ using std::end;
 
 
 screenToWorldTransformation::screenToWorldTransformation(
-    array<array<float,4> ,4 > transformMatrixIn, float farClipPlaneIn, array<array< float,4> , 4 >  localToWorldIn) : farClipPlaneDistance(farClipPlaneIn){
-    copy(begin(transformMatrixIn), end(transformMatrixIn), begin(transformMatrix));
-    copy(begin(localToWorldIn), end(localToWorldIn), begin(localToWorld));
-}
-
-
-array<float, 4> matrixMultiply(array<float,4> vec, array<array<float,4>, 4> mat){
-    array<float, 4> out;
-    int i = 0;
-    for(auto row : mat){
-        out[i] = row[0] * vec[0] + row[1] * vec[1] +row[2] * vec[2] + row[3] * vec[3];
-        i++;
-    }
-    return out;
+    transformMatrix4f &transformMatrixIn, float farClipPlaneIn, transformMatrix4f  &localToWorldIn) {
+    farClipPlaneDistance = farClipPlaneIn;
+    transformMatrix = transformMatrixIn;
+    localToWorld = localToWorldIn;
 }
 
 // TODO: This can likely be parallelized on the GPU
 // TOOD: I need to understand what is going on and why this transformation works correctly
-array<float,3> screenToWorldTransformation::transform(float x, float y, float z, float w){
+// TODO: this function will likely be the most time consuming
+array<float,3> screenToWorldTransformation::transformPixel(float x, float y, float z, float w) const{
     float distance = z * farClipPlaneDistance; 
     x /= 200;
     y /= 200;
@@ -34,14 +25,48 @@ array<float,3> screenToWorldTransformation::transform(float x, float y, float z,
     x *= distance;
     y *= distance;
     array<float, 4> out = {x,y, distance, distance}; 
-    out = matrixMultiply(out, transformMatrix);
+    transformMatrix.multiplyVec4f(out);
     out = {out[1], out[0], out[2], 1};
-    out = matrixMultiply(out, localToWorld);
-
+    localToWorld.multiplyVec4f(out);
     array<float, 3> res = {{out[0],out[1], out[2]}};
-
     return res;
 }
+
+vector<array<float,3>> screenToWorldTransformation::transformFrame(const vector<vector<float>> &frame) const{
+    
+    vector<array<float,3>> points;
+    uint x = 0;
+    for(auto &row : frame){
+        uint y = 0;
+        for(auto z : row){
+            points.push_back(transformPixel(x, y, z, 1));
+            y++;
+        }
+        y++;
+    }
+    return points;
+}
+
+void screenToWorldTransformation::transformFrame(const vector<vector<float>> &frame, vector<array<float,3>> coords) const{
+    uint x = 0;
+    for(auto &row : frame){
+        uint y = 0;
+        for(auto z : row){
+            coords.push_back(transformPixel(x, y, z, 1));
+            y++;
+        }
+        y++;
+    }
+}
+
+vector<array<float,3>> screenToWorldTransformation::transformFrames(const vector<vector<vector<float>>> &frames) const{
+    vector<array<float,3>> points;
+    for(auto &frame : frames){
+        transformFrame(frame, points);
+    }
+    return points;
+}
+
 
 /*
     // TODO: need to make sense of the answer below

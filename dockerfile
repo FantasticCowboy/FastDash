@@ -76,10 +76,7 @@ RUN apt install curl
 
 # install json parsing library
 RUN mkdir /usr/local/include/nlohmann
-RUN touch /usr/local/include/nlohmann/json.hpp
-RUN curl https://raw.githubusercontent.com/nlohmann/json/9d69186291aca4f0137b69c1dee313b391ff564c/include/nlohmann/json.hpp > /usr/local/include/nlohmann/json.hpp
-
-
+RUN cd /usr/local/include/ && curl https://raw.githubusercontent.com/nlohmann/json/develop/single_include/nlohmann/json.hpp > ./json.hpp
 
 # install eigen matrix library
 RUN apt-get install libeigen3-dev

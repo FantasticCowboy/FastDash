@@ -28,7 +28,7 @@ $(objectFiles): %.o : %.d
 	g++ -c -o $@ $(compilerOptions) $(patsubst $(buildPrefix)%.o, $(srcPrefix)%.cpp, $@)
 
 # -MM flag spits out all of the non system dependencies, may need to change to M to get all of the system dependencies
-$(dependencies): $(buildPrefix)%.d : %.cpp
+$(dependencies): $(buildPrefix)%.d : %.cpp 
 	echo $^
 	g++ -MM $^ $(compilerOptions) |\
 	sed 's/$(patsubst $(srcPrefix)%.cpp,%.o,$^)/$(patsubst $(srcPrefix)%.cpp,%.o,$^) $(patsubst $(srcPrefix)%.cpp,%.d,$^)/g' > $@
@@ -54,7 +54,7 @@ $(testFiles) : % : $(buildPrefix)test/%
 
 $(buildPrefix)test/% : $(objectFiles) $(srcPrefix)/test/%.cpp
 	export LD_LIBRARY_PATH="LD_LIBRARY_PATH:/usr/local/lib"; \
-	g++ -o $@  $(patsubst $(buildPrefix)main.o, ,$^) $(compilerOptions)
+	g++ -g3 -o $@  $(patsubst $(buildPrefix)main.o, ,$^) $(compilerOptions)
 
 
 print:

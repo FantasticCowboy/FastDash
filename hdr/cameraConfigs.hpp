@@ -1,7 +1,6 @@
 #include <vector>
 #include <string>
-#include <Eigen/Dense>
-
+#include "transformMatrix.hpp"
 
 
 using std::vector;
@@ -9,8 +8,10 @@ using std::string;
 
 struct cameraConfig{
     string filePrefix;
-
+    transformMatrix4f inverseProjectionMatrix;
+    transformMatrix4f localCoordinatestoWorldCoordinatesMatrix;
 };
 
 // DESCRIPTION: returns all of the camera configurations. 
-vector<cameraConfig> getCameraConfigs();
+const vector<cameraConfig> getCameraConfigs();
+
