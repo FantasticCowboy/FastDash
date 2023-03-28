@@ -12,6 +12,7 @@
 
 using std::cout;
 
+
 void configureWrapper(op::Wrapper& opWrapper)
 {
     try

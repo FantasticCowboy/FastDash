@@ -6,6 +6,7 @@
 using std::vector;
 using std::array;
 
+
 // DESCRIPTION: This is the transformation from a point on the screen
 // in a camera to a point in the world. 
 // TODO: Parallelize the computation of the transform on the GPU or CPU

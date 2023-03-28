@@ -67,6 +67,7 @@ std::vector<std::vector<float>> readDepthFrame(int width, int height, std::strin
     return frame;
 }
 
+
 // TODO: may not need to make deep copies here+
 std::vector<std::vector<float>> reconstructFrame(
     std::vector<std::vector<float>> prevFrame, std::vector<DeltaEncodedPixel> diff){

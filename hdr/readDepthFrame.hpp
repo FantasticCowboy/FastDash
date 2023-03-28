@@ -16,6 +16,7 @@ typedef struct{
 }DeltaEncodedPixel;
 
 
+
 // DESCRIPTION: Reads in the depth frame as a 2d array of floats. The depth frame should have the format:
 // [{float depth, float depth, float depth, float depth}, ...]. Each depth
 // REQUIRES: width and height specify the corret dimensions of the frame.
@@ -35,4 +36,5 @@ std::vector<DeltaEncodedPixel> readDepthEncoding(std::string fileName);
 // DESCRIPTION: Constructs the orignal depth frame from the pervious depth frame and the diff
 // REQUIRES: prevFrame is not empty
 // EFFECTS: returned vector is encoded depth frame
-std::vector<std::vector<float>> reconstructFrame(std::vector<std::vector<float>> &prevFrame, std::vector<DeltaEncodedPixel> &diff);
+
+std::vector<std::vector<float>> reconstructFrame(std::vector<std::vector<float>> prevFrame, std::vector<DeltaEncodedPixel> diff);

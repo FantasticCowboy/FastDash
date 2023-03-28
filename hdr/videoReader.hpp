@@ -5,8 +5,6 @@ using std::vector;
 using std::string;
 
 
-
-
 // DESCRIPTION: used to read frames from disk
 class videoReader{
     private:
