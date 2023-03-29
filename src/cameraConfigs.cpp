@@ -6,7 +6,7 @@
 #include <iostream>
 
 
-DEFINE_string(cameraConfigsPath, "", "Json file that contains camera projection information");
+DEFINE_string(cameraConfigsPath, "./testFiles/cameraConfigs.json", "Json file that contains camera projection information");
 
 using json = nlohmann::json;
 using std::cout;

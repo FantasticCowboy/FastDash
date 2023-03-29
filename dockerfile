@@ -81,4 +81,9 @@ RUN cd /usr/local/include/ && curl https://raw.githubusercontent.com/nlohmann/js
 # install eigen matrix library
 RUN apt-get install libeigen3-dev
 
+# install libraries for python visualization scripts
+RUN apt install pip
+RUN pip3 install open3d
+RUN pip3 install numpy
+
 WORKDIR /openpose

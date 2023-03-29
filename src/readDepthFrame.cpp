@@ -54,7 +54,7 @@ struct RGBAPixel{
 // May just want to leave as is and update later as reading the depth encoding
 // will likely be in the same coordinate system
 std::vector<std::vector<float>> readDepthFrame(int width, int height, std::string fileName){
-    std::vector<std::vector<float>> frame(width, std::vector<float>(height));
+    std::vector<std::vector<float>> frame(height, std::vector<float>(width));
     std::fstream fs = openFile(fileName);
     for(int j = 0; j < height ; j++){
         for(int i = 0; i < width; i++){
@@ -71,8 +71,8 @@ std::vector<std::vector<float>> readDepthFrame(int width, int height, std::strin
 // TODO: may not need to make deep copies here+
 std::vector<std::vector<float>> reconstructFrame(
     std::vector<std::vector<float>> prevFrame, std::vector<DeltaEncodedPixel> diff){
-    std::vector<std::vector<float>> nextFrame = prevFrame;
 
+    std::vector<std::vector<float>> nextFrame = prevFrame;
     for(auto px : diff){
         nextFrame[px.yPos][px.xPos] += px.diff;
     }

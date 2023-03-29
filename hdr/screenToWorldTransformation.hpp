@@ -28,7 +28,7 @@ public:
     vector<array<float,3>> transformFrame(const vector<vector<float>> &frame) const;
 
     // Description: converts all of the coordinates into world coordinates. Appends values to the coords vector
-    void transformFrame(const vector<vector<float>> &frame, vector<array<float,3>> coords) const;
+    void transformFrame(const vector<vector<float>> &frame, vector<array<float,3>> &coords) const;
 
 
     // Decscription: converts all of the pixels in the frames into world coordiantes 

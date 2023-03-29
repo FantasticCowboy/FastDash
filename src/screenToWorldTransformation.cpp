@@ -47,7 +47,7 @@ vector<array<float,3>> screenToWorldTransformation::transformFrame(const vector<
     return points;
 }
 
-void screenToWorldTransformation::transformFrame(const vector<vector<float>> &frame, vector<array<float,3>> coords) const{
+void screenToWorldTransformation::transformFrame(const vector<vector<float>> &frame, vector<array<float,3>> &coords) const{
     uint x = 0;
     for(auto &row : frame){
         uint y = 0;

@@ -38,12 +38,11 @@ vector<vector<float>> videoReader::getNextFrame(){
         ret = prevFrame;
     }else{
         std::vector<DeltaEncodedPixel> diff = readDepthEncoding(getFileName());
-        ret = reconstructFrame(prevFrame, diff);
-        prevFrame = ret;
+        prevFrame = reconstructFrame(prevFrame, diff);
+        ret = prevFrame;
     }
 
     cur_frame+=1;
-
     std::reverse(ret.begin(), ret.end());
 
     return ret;

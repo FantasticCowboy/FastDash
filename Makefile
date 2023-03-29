@@ -11,7 +11,10 @@ testSrcDirEscaped = src\/test\/
 testTargetDir = build/test/
 testTargetDirEscaped = build\/test\/
 
-compilerOptions = -g3 -std=c++17 -I ./hdr -I ./thirdParty -I /usr/include/eigen3  -lopenpose -lgflags 
+OPT := -g3
+compilerOptions = -std=c++17 $(OPT) -I ./hdr -I ./thirdParty -I /usr/include/eigen3  -lopenpose -lgflags 
+
+
 
 srcFiles :=    $(foreach   file, $(shell find $(srcPrefix) -maxdepth 1 -name '*.cpp'), $(patsubst $(srcPrefix)/%, %, $(file)))
 srcFiles := 	$(foreach   file, $(srcFiles), $(patsubst main.cpp, , $(file))  )
@@ -25,21 +28,20 @@ dependencies := $(foreach   file, $(srcFiles), $(patsubst %.cpp, $(buildPrefix)/
 testSrc     := $(shell find $(srcPrefix) -maxdepth 1 -name 'test*.cpp')
 testDeps	:= $(foreach file, $(testSrc), $(patsubst $(srcPrefix)%.cpp, $(buildPrefix)%.d, $(file)))
 testObjects := $(foreach file, $(testSrc), $(patsubst $(srcPrefix)%.cpp, $(buildPrefix)%.o, $(file)))
+testObjects := $(foreach   file, $(testObjects), $(patsubst build/testMain.o, , $(file))  )
+
 
 # Tells make to search in thes directories
 VPATH = hdr src src/test
 -include $(dependencies)
 -include $(testDeps)
 
-#g++ -MM $^ $(compilerOptions) |\
-#sed 's/$(patsubst $(buildPrefix)/%,%,$@)/$(patsubst $(buildPrefix)/%.o,$(buildPrefix)\/%.o,$@)/g' > $(patsubst %.o,%.d,$@)
-
 $(dependencies) : $(buildPrefix)/%.d : $(srcPrefix)/%.cpp
 	g++ -MM $< $(compilerOptions) |\
 	sed 's/$(patsubst $(buildPrefix)/%.d,%.o,$@)/$(patsubst $(buildPrefix)/%.d,$(buildPrefix)\/%.o,$@) $(patsubst $(buildPrefix)/%.d,$(buildPrefix)\/%.d,$@)/g' > $@
 
 $(objectFiles) $(testObjects): $(buildPrefix)/%.o : $(srcPrefix)/%.cpp $(buildPrefix)/%.d
-	g++ -c -o $@ $< $(compilerOptions)
+	g++ -c -o $@ $< $(compilerOptions) 
 
 .PHONY: clean
 .PHONY: all
@@ -51,7 +53,7 @@ $(buildPrefix)/FastDash : $(objectFiles) main.cpp
 	export LD_LIBRARY_PATH="LD_LIBRARY_PATH:/usr/local/lib"; \
 	g++ -o $@ $^ $(compilerOptions)
 
-$(buildPrefix)/testMain : $(testObjects) $(objectFiles) 
+$(buildPrefix)/testMain : $(testObjects) $(objectFiles) testMain.cpp
 	export LD_LIBRARY_PATH="LD_LIBRARY_PATH:/usr/local/lib"; \
 	g++ -o $@ $^ $(compilerOptions) 
 
@@ -60,10 +62,9 @@ FastDash : $(buildPrefix)/FastDash
 Test : build/testMain
 
 print:
-	echo g++ -o $@ $(testObjects) src/testMain.cpp 
+	echo $(OPT)
 
 all: $(objectFiles) $(buildPrefix)FastDash
 
 clean:
 	rm -r ./build/*
-	mkdir ./build/test

@@ -4,18 +4,11 @@
 #include <vector>
 #include <string>
 
-
-
-
 typedef struct{
     float diff;
     uint32_t xPos;
-    uint32_t yPos;
-
-    
+    uint32_t yPos;    
 }DeltaEncodedPixel;
-
-
 
 // DESCRIPTION: Reads in the depth frame as a 2d array of floats. The depth frame should have the format:
 // [{float depth, float depth, float depth, float depth}, ...]. Each depth

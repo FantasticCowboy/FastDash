@@ -7,46 +7,42 @@
 #include <gflags/gflags.h>
 #include <gflags/gflags_completions.h>
 #include "cameraConfigs.hpp"
-
+#include "writePointCloud.hpp"
 
 using std::array;
 using std::vector;
 
 
-static float farClipPlaneDistance = 10;
-static int height = 1080;
-static int width = 1920;
-static int numFrames = 1;
-string encodingFilesLocation = "./src/test/testDeltaEncodedFiles/";
-string uid0 = "0";
-string uid1 = "1";
-string uid2 = "2";
-string uid3 = "3";
+static int height = 200;
+static int width = 200;
+static int numFrames = 2;
+DEFINE_string(encodingFilesLocation, "./testFiles/", "Where the files are stored on disk");
+DEFINE_double(farClipPlaneDistance, 10, "Farclip plane of the camera");
+DEFINE_int32(numFrames, 24, "Number of frames to read from disk");
+
 
 int main(int argc, char *argv[]){
     std::cout << "Starting program..." << std::endl;
     gflags::ParseCommandLineFlags(&argc, &argv, true);   
-
     vector<cameraConfig> configs = getCameraConfigs();     
     vector<videoReader> videoReaders;
     vector<screenToWorldTransformation> transforms;
 
-
-    for(auto config: configs){
-        videoReaders.emplace_back(encodingFilesLocation + config.filePrefix, height, width);
-        transforms.emplace_back(config.inverseProjectionMatrix, farClipPlaneDistance, config.localCoordinatestoWorldCoordinatesMatrix);
+    for(int i = 0; i < configs.size(); i++){
+        videoReaders.push_back(videoReader(FLAGS_encodingFilesLocation + configs[i].filePrefix, height, width));
+        transforms.push_back(screenToWorldTransformation(configs[i].inverseProjectionMatrix, FLAGS_farClipPlaneDistance, configs[i].localCoordinatestoWorldCoordinatesMatrix));
     }
 
-
     vector<vector<array<float,3>>> pointsFrames;
-    
+    std::cout << "Transforming Frames..." << std::endl;
     for(int i = 0; i < numFrames; i++){
-        vector<array<float,3>> points;
+        pointsFrames.emplace_back();
         for(int i = 0; i < videoReaders.size(); i++){
-            transforms[i].transformFrame(videoReaders[i].getNextFrame(),points);
+            transforms[i].transformFrame(videoReaders[i].getNextFrame(), pointsFrames[0]);
         }
-        pointsFrames.push_back(points);        
-    }  
+    }
+
+    writeFrame("./out", pointsFrames[0]);
 
     std::cout << "Exiting program..." << std::endl;
 }
