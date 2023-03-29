@@ -13,13 +13,13 @@ using std::array;
 using std::vector;
 
 
-static int height = 200;
-static int width = 200;
+static int height = 1080;
+static int width = 1920;
 static int numFrames = 2;
 DEFINE_string(encodingFilesLocation, "./testFiles/", "Where the files are stored on disk");
 DEFINE_double(farClipPlaneDistance, 10, "Farclip plane of the camera");
-DEFINE_int32(numFrames, 24, "Number of frames to read from disk");
-
+DEFINE_int32(numFrames, 1, "Number of frames to read from disk");
+DEFINE_bool(writeFramesToDisk, false, "Whethere or not to write the frames to disk");
 
 int main(int argc, char *argv[]){
     std::cout << "Starting program..." << std::endl;
@@ -42,7 +42,9 @@ int main(int argc, char *argv[]){
         }
     }
 
-    writeFrame("./out", pointsFrames[0]);
-
+    if(FLAGS_writeFramesToDisk){
+        std::cout << "Writing Frames..." << std::endl;
+        writeFrame("./out", pointsFrames[0]);
+    }
     std::cout << "Exiting program..." << std::endl;
 }

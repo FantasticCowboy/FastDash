@@ -6,3 +6,4 @@ src/test/*
 scratch
 thirdParty/eigen-3.4.0/*
 thirdParty/eigen-3.4.0
+testFiles/largeTestFiles/*
