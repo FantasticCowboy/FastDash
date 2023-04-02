@@ -64,6 +64,7 @@ std::vector<std::vector<float>> readDepthFrame(int width, int height, std::strin
             frame[j][i] = depth.r;
         }
     }
+
     return frame;
 }
 

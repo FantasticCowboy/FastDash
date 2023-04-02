@@ -1,3 +1,4 @@
+
 #include "transformMatrix.hpp"
 #include <Eigen/Dense>
 #include <iostream>
@@ -12,6 +13,7 @@ transformMatrix4f::transformMatrix4f(array<array<float,4>,4> &mat_in){
             mat(i,j) = mat_in[i][j];
         }
     }
+
 }
 
 transformMatrix4f::transformMatrix4f(){
@@ -27,12 +29,12 @@ transformMatrix4f::transformMatrix4f(vector<vector<float>> &mat_in){
     for(int i = 0; i < 4; i++){
         for(int j = 0; j < 4; j++){
             mat(i,j) = mat_in[i][j];
-        }
+    }
     }
 }
 
 bool transformMatrix4f::operator==(const transformMatrix4f &lhs) const{
-    return mat.isApprox(lhs.mat);
+    return mat.isApprox(lhs.mat,1E-4);
 }
 
 void transformMatrix4f::operator=(const transformMatrix4f &lhs){

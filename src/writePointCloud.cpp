@@ -11,7 +11,7 @@ using std::cout;
 // since the error should be handleable
 std::fstream openFileWrite(std::string fileName){
     std::fstream fs;
-    fs.open(fileName, std::fstream::out | std::fstream::binary);
+    fs.open(fileName, std::fstream::out | std::fstream::binary | std::fstream::trunc);
     if(!fs.good()){
         cout << "Failed to open " + fileName + "\n";
         exit(1);
@@ -26,6 +26,4 @@ void writeFrame(string filePath, vector<array<float,3>> pointFrame){
         char* start = reinterpret_cast<char*>(point.data());
         fs.write(start, sizeof(float) * 3);
     }
-
-
 }

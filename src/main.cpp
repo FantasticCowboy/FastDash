@@ -13,13 +13,12 @@ using std::array;
 using std::vector;
 
 
-static int height = 1080;
-static int width = 1920;
-static int numFrames = 2;
-DEFINE_string(encodingFilesLocation, "./testFiles/", "Where the files are stored on disk");
+DEFINE_string(encodingFilesLocation, "./testFiles/largeTestFiles/", "Where the files are stored on disk");
 DEFINE_double(farClipPlaneDistance, 10, "Farclip plane of the camera");
 DEFINE_int32(numFrames, 1, "Number of frames to read from disk");
 DEFINE_bool(writeFramesToDisk, false, "Whethere or not to write the frames to disk");
+DEFINE_int32(frameHeight,-1, "Height of frames to be read");
+DEFINE_int32(frameWidth,-1, "Width of frames to be read");
 
 int main(int argc, char *argv[]){
     std::cout << "Starting program..." << std::endl;
@@ -29,16 +28,16 @@ int main(int argc, char *argv[]){
     vector<screenToWorldTransformation> transforms;
 
     for(int i = 0; i < configs.size(); i++){
-        videoReaders.push_back(videoReader(FLAGS_encodingFilesLocation + configs[i].filePrefix, height, width));
+        videoReaders.push_back(videoReader(configs[i].filePrefix, FLAGS_frameHeight, FLAGS_frameWidth, FLAGS_encodingFilesLocation ));
         transforms.push_back(screenToWorldTransformation(configs[i].inverseProjectionMatrix, FLAGS_farClipPlaneDistance, configs[i].localCoordinatestoWorldCoordinatesMatrix));
     }
 
     vector<vector<array<float,3>>> pointsFrames;
     std::cout << "Transforming Frames..." << std::endl;
-    for(int i = 0; i < numFrames; i++){
+    for(int i = 0; i < FLAGS_numFrames; i++){
         pointsFrames.emplace_back();
-        for(int i = 0; i < videoReaders.size(); i++){
-            transforms[i].transformFrame(videoReaders[i].getNextFrame(), pointsFrames[0]);
+        for(int j = 0; j< videoReaders.size(); j++){
+            transforms[j].transformFrame(videoReaders[j].getNextFrame(), pointsFrames[i]);
         }
     }
 

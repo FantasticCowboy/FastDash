@@ -1,5 +1,5 @@
 #include "screenToWorldTransformation.hpp"
-
+#include <iostream>
 
 using std::copy;
 using std::begin;
@@ -17,7 +17,7 @@ screenToWorldTransformation::screenToWorldTransformation(
 // TOOD: I need to understand what is going on and why this transformation works correctly
 // TODO: this function will likely be the most time consuming
 array<float,3> screenToWorldTransformation::transformPixel(float x, float y, float z, float w) const{
-    float distance = z * farClipPlaneDistance; 
+    float distance = z * farClipPlaneDistance;
     x /= 200;
     y /= 200;
     x = 2 * x - 1;
@@ -26,7 +26,7 @@ array<float,3> screenToWorldTransformation::transformPixel(float x, float y, flo
     y *= distance;
     array<float, 4> out = {x,y, distance, distance}; 
     transformMatrix.multiplyVec4f(out);
-    out = {out[1], out[0], out[2], 1};
+    out = {{out[0], out[1], -out[2], 1}};
     localToWorld.multiplyVec4f(out);
     array<float, 3> res = {{out[0],out[1], out[2]}};
     return res;
@@ -35,25 +35,17 @@ array<float,3> screenToWorldTransformation::transformPixel(float x, float y, flo
 vector<array<float,3>> screenToWorldTransformation::transformFrame(const vector<vector<float>> &frame) const{
     
     vector<array<float,3>> points;
-    uint x = 0;
-    for(auto &row : frame){
-        uint y = 0;
-        for(auto z : row){
-            points.push_back(transformPixel(x, y, z, 1));
-            y++;
-        }
-        y++;
-    }
+    transformFrame(frame, points);
     return points;
 }
 
 void screenToWorldTransformation::transformFrame(const vector<vector<float>> &frame, vector<array<float,3>> &coords) const{
-    uint x = 0;
+    uint y = 0;
     for(auto &row : frame){
-        uint y = 0;
+        uint x = 0;
         for(auto z : row){
             coords.push_back(transformPixel(x, y, z, 1));
-            y++;
+            x++;
         }
         y++;
     }

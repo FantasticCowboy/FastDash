@@ -20,6 +20,7 @@ public:
     transformMatrix4f(array<array<float,4>,4> &mat_in);
     transformMatrix4f(vector<vector<float>> &mat_in);
     transformMatrix4f();
+    // Description: compares the two matrices and makes sure that each element is within 1E-4 of eachother
     bool operator==( const transformMatrix4f &rhs) const;
     void operator=( const transformMatrix4f &rhs);
     // multiplies in place
