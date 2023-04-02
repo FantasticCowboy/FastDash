@@ -43,7 +43,9 @@ int main(int argc, char *argv[]){
 
     if(FLAGS_writeFramesToDisk){
         std::cout << "Writing Frames..." << std::endl;
-        writeFrame("./out", pointsFrames[0]);
+        for(int i = 0; i < pointsFrames.size(); i++){
+            writeFrame("./build/out_" + std::to_string(i) + ".pointCloud", pointsFrames[i]);
+        }
     }
     std::cout << "Exiting program..." << std::endl;
 }
