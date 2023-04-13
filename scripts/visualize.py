@@ -1,3 +1,7 @@
+#TODO: This code stinks need to update, however it gets the job done sort of
+def printHelp():
+    print("Usage: visualize.py [Path to point cloud files] [numer of frames] [view single frame] [frame number if single frame]")
+
 import sys
 import pdb
 import struct
@@ -8,15 +12,13 @@ from multiprocessing import Condition
 import time
 import math
 
-def printHelp():
-    print("Usage: visualize.py [Path to point cloud files] [numer of frames] [view single frame] [frame number if single frame]")
 
 DATA_SIZE = 4
 DATA_AMOUNT = 3
 STRUCT_SIZE = DATA_AMOUNT * DATA_SIZE
 
 def getName(prefix, number):
-    return prefix + "_" + str(number) + ".pointCloud"
+    return prefix
 
 def readFile(filePath):
     b = bytearray()
@@ -109,6 +111,7 @@ def main():
     if(sys.argv[1] == "--help"):
         printHelp()
         return
+
 
     fileLocation_prefix = sys.argv[1]
     singleFrame = False

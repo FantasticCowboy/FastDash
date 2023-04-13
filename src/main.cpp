@@ -22,7 +22,7 @@ DEFINE_int32(frameWidth,-1, "Width of frames to be read");
 
 int main(int argc, char *argv[]){
     std::cout << "Starting program..." << std::endl;
-    gflags::ParseCommandLineFlags(&argc, &argv, true);   
+gflags::ParseCommandLineFlags(&argc, &argv, true);   
     vector<cameraConfig> configs = getCameraConfigs();     
     vector<videoReader> videoReaders;
     vector<screenToWorldTransformation> transforms;
@@ -40,6 +40,7 @@ int main(int argc, char *argv[]){
             transforms[j].transformFrame(videoReaders[j].getNextFrame(), pointsFrames[i]);
         }
     }
+
 
     if(FLAGS_writeFramesToDisk){
         std::cout << "Writing Frames..." << std::endl;
