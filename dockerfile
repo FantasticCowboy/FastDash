@@ -1,7 +1,7 @@
 # LTS version of ubuntu that will stop recieving support in 2032
 # changed from 18.04 to this because 18.04 had the wrong version of 
 # c++ installed
-FROM nvidia/cuda:11.7.1-cudnn8-devel-ubuntu20.04
+FROM nvidia/cuda:11.4.1-cudnn8-devel-ubuntu20.04
 
 
 ENV DEBIAN_FRONTEND=noninteractive
@@ -54,7 +54,7 @@ RUN apt install curl -y
 
 # install json parsing library
 RUN mkdir /usr/local/include/nlohmann
-RUN cd /usr/local/include/ && curl https://raw.githubusercontent.com/nlohmann/json/develop/single_include/nlohmann/json.hpp > ./json.hpp
+RUN cd /usr/local/include/nlohmann && curl https://raw.githubusercontent.com/nlohmann/json/develop/single_include/nlohmann/json.hpp > ./json.hpp
 
 # install eigen matrix library
 RUN apt-get install libeigen3-dev -y
@@ -71,8 +71,10 @@ RUN git submodule update --init --recursive --remote
 # Downloads all available models. You can reduce image size by being more selective.
 # TODO: I need to edit this list such that the cmake flags are updated to the new
 # version of open pose
+RUN ldconfig /usr/local/cuda/lib64
+RUN ldconfig
 RUN cmake -DDOWNLOAD_BODY_25_MODEL=ON . -S . -B ./build/ 
-
+RUN ldconfig
 RUN cd ./build && make -j$(nproc)
 
 
@@ -86,3 +88,6 @@ RUN mv /openpose/build/src/openpose/libopenpose.so /openpose/build/src/openpose/
 
 # moves the open cv files as all the libs reference it using <opencv2/HEADER_FILE_NAME>
 RUN mv /usr/include/opencv4/opencv2 /usr/include
+RUN ldconfig
+
+# TODO: need a command to restart the container so that nvidia works

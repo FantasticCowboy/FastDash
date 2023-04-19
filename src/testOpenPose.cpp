@@ -2,5 +2,6 @@
 #include "pose.hpp"
 
 
-TEST_CASE(){
+TEST_CASE("Test openpose"){
+    generateKeypoins();
 }
