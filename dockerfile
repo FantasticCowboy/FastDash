@@ -1,6 +1,5 @@
-# LTS version of ubuntu that will stop recieving support in 2032
-# changed from 18.04 to this because 18.04 had the wrong version of 
-# c++ installed
+# Openpose recommedns 11.7 but the driver installed on the usc machine combined with lack of hardware support
+# prevents the driver from being forward compatable with 11.7
 FROM nvidia/cuda:11.4.1-cudnn8-devel-ubuntu20.04
 
 

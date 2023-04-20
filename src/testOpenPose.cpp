@@ -3,5 +3,6 @@
 
 
 TEST_CASE("Test openpose"){
-    generateKeypoins();
+    wrapperGenerators gen;
+    gen.exploreCombinations();
 }

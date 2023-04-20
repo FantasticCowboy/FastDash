@@ -1,5 +1,7 @@
 openpose --image_dir ./out.png --write_keypoint ./ --display 0 --write_images ./
-openpose --image_dir /workspaces/FastDash/testFiles/testOpenPose/input --write_images /path/to/output/image_folder --write_keypoint /workspaces/FastDash/testFiles/testOpenPose/output --write_keypoint_format json --display 0 --render_pose 0
+
+
+./examples/openpose/openpose --image_dir /workspaces/FastDash/testFiles/testOpenPose/input --write_images /workspaces/FastDash/testFiles/testOpenPose/output --write_json /workspaces/FastDash/testFiles/testOpenPose/output --display 0
 
 
 ARG nvidia_binary_version="515.65.01"
