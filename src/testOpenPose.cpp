@@ -1,8 +1,7 @@
 #include "catch.hpp"
-#include "pose.hpp"
+#include "experimentsWithOpenPose.hpp"
 
 
 TEST_CASE("Test openpose"){
-    wrapperGenerators gen;
-    gen.exploreCombinations();
+    generateKeypoins();
 }
