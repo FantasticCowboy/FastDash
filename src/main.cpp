@@ -59,8 +59,8 @@ int main(int argc, char *argv[]){
                 // Iterate through each keypoint and add to point frame file
                 std::cout << "Array dimensions " << data->poseKeypoints.printSize() << std::endl;
                 for(int k = 0; k < data->poseKeypoints.getVolume() ; k+=3 ){
-                    int xCoord = data->poseKeypoints.at(k);
-                    int yCoord = data->poseKeypoints.at(k+1);
+                    int xCoord = 199 - data->poseKeypoints.at(k);
+                    int yCoord = 199 - data->poseKeypoints.at(k+1);
                     array<float,3> point =  transforms[j].transformPixel(xCoord, yCoord, frame[yCoord][xCoord], 1);
                     keyPoints[i].push_back(point);
                     

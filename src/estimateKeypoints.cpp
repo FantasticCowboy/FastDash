@@ -2,39 +2,29 @@
 #include <opencv2/opencv.hpp>
 
 
-cv::Mat refectOverYaxis(){
 
-}
-
-cv::Mat refectOverXaxis(){
-    
-}
+// NOTE: I determined that in order to get the unity coordinate system in line with the openpose coordinate system, you need to 
+// Reflect over the Y and X axis. To determine this I compared the images saved to disk by unity to what unity was actually showing.
+// What unity actually shows is normal but what  is saved to the y and x axis is incorrect since it is reflected. Thius tells me that
+// when interpreting the data raw without any internal unity transformation the y anx x axis need to be reflected over the center of the image
 
 
-cv::Mat formatForKeyPointEstimation(){
-
-}
-
-cv::Mat formatForTranslationInt3dSpace(){
-
-}
-
-
-
+// Reflects vector over x and y axis and mputs that into a cv matrix
+// See above note for an explanation
 cv::Mat convertVectorToMat(const std::vector<std::vector<float>> &frame){
     // cv::CV_32F
     int type = 5;
     // op::Matrix newFrame(frame.size(), frame[0].size(), type);
     cv::Mat f(frame.size(), frame[0].size(), type);
 
-    int rowIndex = 0;
+    int rowIndex = 199;
     for(auto row: frame){
-        int colIdex = 0;
+        int colIdex = 199;
         for(auto val : row){
-            f.at<float>(rowIndex, colIdex) = val;
-            colIdex++;
+            f.at<float>(rowIndex,colIdex) = val;
+            colIdex--;
         }
-        rowIndex++;
+        rowIndex--;
     }
 
     cv::Mat output0;
