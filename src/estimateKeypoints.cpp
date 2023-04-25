@@ -33,7 +33,6 @@ std::shared_ptr<op::Datum> estimateKeypoints(const std::vector<std::vector<float
     opWrapper.configure(wrapperStructPose);  
     opWrapper.start();
     cv::Mat tmp = (convertVectorToMat(frame));
-    std::cout << tmp.at<float>(0,0);
     auto ret = opWrapper.emplaceAndPop(OP_CV2OPMAT(tmp));
     opWrapper.stop();
     return ret->at(0);

@@ -21,6 +21,7 @@ DEFINE_bool(writeFramesToDisk, false, "Whethere or not to write the frames to di
 DEFINE_int32(frameHeight,-1, "Height of frames to be read");
 DEFINE_int32(frameWidth,-1, "Width of frames to be read");
 DEFINE_bool(transformFrames, false, "Whether or not to transform the frames into pointclouds");
+DEFINE_bool(calculateKeypoints, false, "Whether or not to calculate the keypoints for each frame and store in to a point cloud");
 
 int main(int argc, char *argv[]){
     std::cout << "Starting program..." << std::endl;
@@ -38,33 +39,30 @@ int main(int argc, char *argv[]){
     // Initallize data structure for storing point cloud frames
     vector<vector<array<float,3>>> pointsFrame;
 
-    // If flag is enabled, iterate through each depth frame, convert to point cloud and store in pointFrames
-    if(FLAGS_transformFrames){
-        std::cout << "Transforming Frames..." << std::endl;
-        for(int i = 0; i < FLAGS_numFrames; i++){
-            pointsFrame.emplace_back();
-
-            // Convert all of the pixels to 3d space
-            for(int j = 0; j< videoReaders.size(); j++){
-                transforms[j].transformFrame(videoReaders[j].getNextFrame(), pointsFrame[i]);
-            }
-        }
-    }
 
     // Calculate the keypoints for each person posing and store in pointFrames
-    std::cout << "Calculating Keypoints..." << std::endl;
     for(int i = 0; i < FLAGS_numFrames; i++){
         pointsFrame.emplace_back();
+
+        // Iterate through each camera and either calculate the keypoints or transform every pixel. Then stitch them together in to a single frame
         for(int j = 0; j< videoReaders.size(); j++){
             vector<vector<float>> frame = videoReaders[j].getNextFrame();
-            auto data = estimateKeypoints(frame);
 
-            // Iterate through each keypoint and add to point frame file
-            for(int k = 0; k < data->poseKeypoints.getSize(0); k+=3 ){
-                int xCoord = data->poseKeypoints.at(k);
-                int yCoord = data->poseKeypoints.at(k+1);
-                array<float,3> point =  transforms[j].transformPixel(xCoord, yCoord, frame[xCoord][yCoord], 1);
-                pointsFrame[i].push_back(point);
+            if(FLAGS_calculateKeypoints){
+                std::cout << "Calculating Keypoints..." << std::endl;
+                auto data = estimateKeypoints(frame);
+                // Iterate through each keypoint and add to point frame file
+                for(int k = 0; k < data->poseKeypoints.getSize(0); k+=3 ){
+                    int xCoord = data->poseKeypoints.at(k);
+                    int yCoord = data->poseKeypoints.at(k+1);
+                    array<float,3> point =  transforms[j].transformPixel(xCoord, yCoord, frame[xCoord][yCoord], 1);
+                    pointsFrame[i].push_back(point);
+                }
+            }
+
+            if(FLAGS_transformFrames){
+                std::cout << "Transforming Frame..." << std::endl;
+                transforms[j].transformFrame(frame, pointsFrame[i]);                                
             }
         }
     }
