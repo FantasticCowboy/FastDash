@@ -35,5 +35,22 @@ std::shared_ptr<op::Datum> estimateKeypoints(const std::vector<std::vector<float
     cv::Mat tmp = (convertVectorToMat(frame));
     auto ret = opWrapper.emplaceAndPop(OP_CV2OPMAT(tmp));
     opWrapper.stop();
+    debugKeypointDataImage(ret->at(0), "./out.png");
+    debugKeypointData(ret->at(0), "./out.json");
     return ret->at(0);
+}
+
+void debugKeypointData(std::shared_ptr<op::Datum>  &data, const std::string &filepath){
+    op::savePeopleJson(
+        data->poseKeypoints,
+        data->poseCandidates,
+        "poseKeypoints",
+        filepath,
+        true
+    );
+}
+
+
+void debugKeypointDataImage(std::shared_ptr<op::Datum>  &data, const std::string &filepath){
+    op::saveImage(data->cvOutputData, filepath);
 }

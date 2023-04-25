@@ -52,11 +52,13 @@ int main(int argc, char *argv[]){
                 std::cout << "Calculating Keypoints..." << std::endl;
                 auto data = estimateKeypoints(frame);
                 // Iterate through each keypoint and add to point frame file
-                for(int k = 0; k < data->poseKeypoints.getSize(0); k+=3 ){
+                std::cout << "Array dimensions " << data->poseKeypoints.printSize() << std::endl;
+                for(int k = 0; k < data->poseKeypoints.getVolume() ; k+=3 ){
                     int xCoord = data->poseKeypoints.at(k);
                     int yCoord = data->poseKeypoints.at(k+1);
                     array<float,3> point =  transforms[j].transformPixel(xCoord, yCoord, frame[xCoord][yCoord], 1);
                     pointsFrame[i].push_back(point);
+                    
                 }
             }
 
