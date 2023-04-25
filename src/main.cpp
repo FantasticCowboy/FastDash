@@ -37,12 +37,15 @@ int main(int argc, char *argv[]){
     }
 
     // Initallize data structure for storing point cloud frames
-    vector<vector<array<float,3>>> pointsFrame;
+    vector<vector<array<float,3>>> pointFrame;
+    vector<vector<array<float,3>>> keyPoints;
+
 
 
     // Calculate the keypoints for each person posing and store in pointFrames
     for(int i = 0; i < FLAGS_numFrames; i++){
-        pointsFrame.emplace_back();
+        pointFrame.emplace_back();
+        keyPoints.emplace_back();
 
         // Iterate through each camera and either calculate the keypoints or transform every pixel. Then stitch them together in to a single frame
         for(int j = 0; j< videoReaders.size(); j++){
@@ -51,20 +54,22 @@ int main(int argc, char *argv[]){
             if(FLAGS_calculateKeypoints){
                 std::cout << "Calculating Keypoints..." << std::endl;
                 auto data = estimateKeypoints(frame);
+                debugKeypointDataImage(data, "./out_" + std::to_string(j) + ".png");
+
                 // Iterate through each keypoint and add to point frame file
                 std::cout << "Array dimensions " << data->poseKeypoints.printSize() << std::endl;
                 for(int k = 0; k < data->poseKeypoints.getVolume() ; k+=3 ){
                     int xCoord = data->poseKeypoints.at(k);
                     int yCoord = data->poseKeypoints.at(k+1);
-                    array<float,3> point =  transforms[j].transformPixel(xCoord, yCoord, frame[xCoord][yCoord], 1);
-                    pointsFrame[i].push_back(point);
+                    array<float,3> point =  transforms[j].transformPixel(xCoord, yCoord, frame[yCoord][xCoord], 1);
+                    keyPoints[i].push_back(point);
                     
                 }
             }
 
             if(FLAGS_transformFrames){
                 std::cout << "Transforming Frame..." << std::endl;
-                transforms[j].transformFrame(frame, pointsFrame[i]);                                
+                transforms[j].transformFrame(frame, pointFrame[i]);                                
             }
         }
     }
@@ -72,8 +77,10 @@ int main(int argc, char *argv[]){
     // Write Point frames to disk
     if(FLAGS_writeFramesToDisk){
         std::cout << "Writing Frames..." << std::endl;
-        for(int i = 0; i < pointsFrame.size(); i++){
-            writeFrame("./build/out_" + std::to_string(i) + ".pointCloud", pointsFrame[i]);
+        for(int i = 0; i < pointFrame.size(); i++){
+            writeFrame("./build/out_" + std::to_string(i) + ".pointCloud", pointFrame[i]);
+            writeFrame("./build/out_" + std::to_string(i) + ".keyPoints", keyPoints[i]);
+            
         }
     }    
 

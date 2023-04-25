@@ -1,6 +1,26 @@
 #include "estimateKeypoints.hpp"
 #include <opencv2/opencv.hpp>
 
+
+cv::Mat refectOverYaxis(){
+
+}
+
+cv::Mat refectOverXaxis(){
+    
+}
+
+
+cv::Mat formatForKeyPointEstimation(){
+
+}
+
+cv::Mat formatForTranslationInt3dSpace(){
+
+}
+
+
+
 cv::Mat convertVectorToMat(const std::vector<std::vector<float>> &frame){
     // cv::CV_32F
     int type = 5;
@@ -35,8 +55,7 @@ std::shared_ptr<op::Datum> estimateKeypoints(const std::vector<std::vector<float
     cv::Mat tmp = (convertVectorToMat(frame));
     auto ret = opWrapper.emplaceAndPop(OP_CV2OPMAT(tmp));
     opWrapper.stop();
-    debugKeypointDataImage(ret->at(0), "./out.png");
-    debugKeypointData(ret->at(0), "./out.json");
+
     return ret->at(0);
 }
 
