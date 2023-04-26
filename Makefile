@@ -12,7 +12,7 @@ testTargetDir = build/test/
 testTargetDirEscaped = build\/test\/
 
 OPT := -g3
-compilerOptions = -std=c++17 $(OPT) -I ./hdr -I ./thirdParty -I /usr/include/libpng16 -I /usr/include/eigen3  -lopenpose -lgflags -lpng -lopencv_core -lopencv_imgproc
+compilerOptions = -std=c++17 $(OPT) -I ./hdr -I ./thirdParty -I /usr/include/libpng16 -I /usr/include/eigen3  -lopenpose -lgflags -lpng -lopencv_core -lopencv_imgproc -lopencv_videoio
 
 
 

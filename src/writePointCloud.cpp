@@ -27,3 +27,15 @@ void writeFrame(string filePath, vector<array<float,3>> pointFrame){
         fs.write(start, sizeof(float) * 3);
     }
 }
+
+void writeFrame(string filePath, vector<cv::Point3f> pointFrame){
+    std::fstream fs = openFileWrite(filePath);
+    array<float,3> tmp;
+    char* start = reinterpret_cast<char*>(tmp.data());    
+    for(auto point : pointFrame){
+        tmp[0] = point.x;
+        tmp[1] = point.y;
+        tmp[2] = point.z;
+        fs.write(start, sizeof(float) * 3);
+    }
+}

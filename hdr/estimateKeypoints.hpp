@@ -8,6 +8,10 @@
 std::shared_ptr<op::Datum> estimateKeypoints(const std::vector<std::vector<float>> &frame);
 
 
+void shutdownWrapper();
+
+void initializeWrapper();
+
 void debugKeypointData(std::shared_ptr<op::Datum>  &data, const std::string &filepath);
 
 void debugKeypointDataImage(std::shared_ptr<op::Datum>  &data, const std::string &filepath);

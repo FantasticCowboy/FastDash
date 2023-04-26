@@ -36,16 +36,28 @@ cv::Mat convertVectorToMat(const std::vector<std::vector<float>> &frame){
     return output;
 }
 
+// TODO: This is causing an error and is bad programming practice, should just turn it into a class
+static op::Wrapper opWrapper{op::ThreadManagerMode::Asynchronous};
+static bool intitialized = false;
+
+void initializeWrapper(){
+    if(!intitialized){
+        intitialized = true;
+        op::WrapperStructPose wrapperStructPose{};
+        wrapperStructPose.modelFolder = "/openpose/models";
+        wrapperStructPose.renderThreshold = 0.5;
+        opWrapper.configure(wrapperStructPose);  
+        opWrapper.start();
+    }
+}
+
+void shutdownWrapper(){
+    opWrapper.stop();
+}
+
 std::shared_ptr<op::Datum> estimateKeypoints(const std::vector<std::vector<float>> &frame){
-    op::Wrapper opWrapper{op::ThreadManagerMode::Asynchronous};
-    op::WrapperStructPose wrapperStructPose{};
-    wrapperStructPose.modelFolder = "/openpose/models";
-    opWrapper.configure(wrapperStructPose);  
-    opWrapper.start();
     cv::Mat tmp = (convertVectorToMat(frame));
     auto ret = opWrapper.emplaceAndPop(OP_CV2OPMAT(tmp));
-    opWrapper.stop();
-
     return ret->at(0);
 }
 
