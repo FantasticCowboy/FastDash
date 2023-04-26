@@ -49,10 +49,13 @@ int main(int argc, char *argv[]){
 
     // TODO: Make this from configs this is UGLY
     rgbVideoReaders.push_back(videoReaderMP4("/workspaces/FastDash/testFiles/endToEndTestFiles/test200x200/MP4/RGB Camera 0.mp4"));
+    rgbVideoReaders.back().getNextFrame();
     rgbVideoReaders.push_back(videoReaderMP4("/workspaces/FastDash/testFiles/endToEndTestFiles/test200x200/MP4/RGB Camera 1.mp4"));
+    rgbVideoReaders.back().getNextFrame();
     rgbVideoReaders.push_back(videoReaderMP4("/workspaces/FastDash/testFiles/endToEndTestFiles/test200x200/MP4/RGB Camera 2.mp4"));
+    rgbVideoReaders.back().getNextFrame();    
     rgbVideoReaders.push_back(videoReaderMP4("/workspaces/FastDash/testFiles/endToEndTestFiles/test200x200/MP4/RGB Camera 3.mp4"));
-
+    rgbVideoReaders.back().getNextFrame();
 
 
     // Initallize data structure for storing point cloud frames
@@ -75,7 +78,7 @@ int main(int argc, char *argv[]){
 
             if(FLAGS_calculateKeypoints){
                 std::cout << "Calculating Keypoints..." << std::endl;
-                auto data = estimateKeypoints(depthFrame);
+                auto data = estimateKeypoints(rgbFrame);
                 debugKeypointDataImage(data, "./build/out_" + std::to_string(j) + "_" + std::to_string(i) + ".png");
                 debugKeypointData(data, "./build/out_" + std::to_string(j) + "_" + std::to_string(i) + ".json");
 
@@ -85,8 +88,10 @@ int main(int argc, char *argv[]){
                     if(data->poseKeypoints.at(k+2) < FLAGS_keypointThreshold){
                         continue;
                     }
-                    int xCoord = 199 - data->poseKeypoints.at(k);
-                    int yCoord = 199 - data->poseKeypoints.at(k+1);
+                    int xCoord = data->poseKeypoints.at(k);
+
+                    // Reflect over y axis
+                    int yCoord = FLAGS_frameHeight - data->poseKeypoints.at(k+1);
                     array<float,3> point =  transforms[j].transformPixel(xCoord, yCoord, depthFrame[yCoord][xCoord], 1);
                     keyPoints[i].push_back(cv::Point3f(point[0], point[1], point[2]));                    
                 }

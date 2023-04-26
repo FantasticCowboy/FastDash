@@ -4,6 +4,7 @@
 #define OPENPOSE_FLAGS_DISABLE_PRODUCER
 #define OPENPOSE_FLAGS_DISABLE_DISPLAY
 #include <memory>
+#include <opencv2/opencv.hpp>
 
 std::shared_ptr<op::Datum> estimateKeypoints(const std::vector<std::vector<float>> &frame);
 std::shared_ptr<op::Datum> estimateKeypoints(const cv::Mat &frame);
