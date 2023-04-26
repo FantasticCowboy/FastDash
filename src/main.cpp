@@ -70,11 +70,12 @@ int main(int argc, char *argv[]){
 
         // Iterate through each camera and either calculate the keypoints or transform every pixel. Then stitch them together in to a single frame
         for(int j = 0; j< depthVideoReaders.size(); j++){
-            vector<vector<float>> frame = depthVideoReaders[j].getNextFrame();
+            vector<vector<float>> depthFrame = depthVideoReaders[j].getNextFrame();
+            cv::Mat rgbFrame = rgbVideoReaders[j].getNextFrame();
 
             if(FLAGS_calculateKeypoints){
                 std::cout << "Calculating Keypoints..." << std::endl;
-                auto data = estimateKeypoints(frame);
+                auto data = estimateKeypoints(depthFrame);
                 debugKeypointDataImage(data, "./build/out_" + std::to_string(j) + "_" + std::to_string(i) + ".png");
                 debugKeypointData(data, "./build/out_" + std::to_string(j) + "_" + std::to_string(i) + ".json");
 
@@ -86,14 +87,14 @@ int main(int argc, char *argv[]){
                     }
                     int xCoord = 199 - data->poseKeypoints.at(k);
                     int yCoord = 199 - data->poseKeypoints.at(k+1);
-                    array<float,3> point =  transforms[j].transformPixel(xCoord, yCoord, frame[yCoord][xCoord], 1);
+                    array<float,3> point =  transforms[j].transformPixel(xCoord, yCoord, depthFrame[yCoord][xCoord], 1);
                     keyPoints[i].push_back(cv::Point3f(point[0], point[1], point[2]));                    
                 }
             }
 
             if(FLAGS_transformFrames){
                 std::cout << "Transforming Frame..." << std::endl;
-                transforms[j].transformFrame(frame, pointFrame[i]);                                
+                transforms[j].transformFrame(depthFrame, pointFrame[i]);                                
             }
         }
 
