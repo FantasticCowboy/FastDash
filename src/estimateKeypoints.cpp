@@ -61,6 +61,12 @@ std::shared_ptr<op::Datum> estimateKeypoints(const std::vector<std::vector<float
     return ret->at(0);
 }
 
+std::shared_ptr<op::Datum> estimateKeypoints(const cv::Mat &frame){
+    auto ret = opWrapper.emplaceAndPop(OP_CV2OPMAT(frame));
+    return ret->at(0);
+}
+
+
 void debugKeypointData(std::shared_ptr<op::Datum>  &data, const std::string &filepath){
     op::savePeopleJson(
         data->poseKeypoints,

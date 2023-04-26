@@ -58,3 +58,21 @@ vector<vector<float>> videoReader::getNextFrame(){
     cur_frame+=1;
     return ret;
 }
+
+cv::Mat videoReaderMP4::getNextFrame(){
+    cv::Mat frame;
+    cap.read(frame);    
+    return frame;
+}
+
+
+videoReaderMP4::videoReaderMP4(std::string path){
+    cap = cv::VideoCapture(path);
+
+}
+
+// TODO: What the hell is this code - fix it ?????!?!?!@?@#!?!@#?
+bool videoReaderMP4::hasNextFrame(){
+    return true;
+    
+}

@@ -6,7 +6,7 @@
 #include <memory>
 
 std::shared_ptr<op::Datum> estimateKeypoints(const std::vector<std::vector<float>> &frame);
-
+std::shared_ptr<op::Datum> estimateKeypoints(const cv::Mat &frame);
 
 void shutdownWrapper();
 

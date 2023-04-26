@@ -28,9 +28,13 @@ DEFINE_double(keypointThreshold, 0.5, "Confidence threshold that has to be met i
 
 int main(int argc, char *argv[]){
     std::cout << "Starting program..." << std::endl;
-    gflags::ParseCommandLineFlags(&argc, &argv, true);   
+    gflags::ParseCommandLineFlags(&argc, &argv, true);  
+
+    // TODO: maybe a vector of vectors or a class to manage all of this complexity 
     vector<cameraConfig> configs = getCameraConfigs();     
-    vector<videoReader> videoReaders;
+    vector<videoReader> depthVideoReaders;
+    vector<videoReaderMP4> rgbVideoReaders;
+
     vector<screenToWorldTransformation> transforms;
 
     std::cout << "Starting Openposee..." << "\n";
@@ -39,9 +43,17 @@ int main(int argc, char *argv[]){
 
     // Set up classes for reading in frames and transforming pixels
     for(int i = 0; i < configs.size(); i++){
-        videoReaders.push_back(videoReader(configs[i].filePrefix, FLAGS_frameHeight, FLAGS_frameWidth, FLAGS_encodingFilesLocation ));
+        depthVideoReaders.push_back(videoReader(configs[i].filePrefix, FLAGS_frameHeight, FLAGS_frameWidth, FLAGS_encodingFilesLocation ));
         transforms.push_back(screenToWorldTransformation(configs[i].inverseProjectionMatrix, FLAGS_farClipPlaneDistance, configs[i].localCoordinatestoWorldCoordinatesMatrix));
     }
+
+    // TODO: Make this from configs this is UGLY
+    rgbVideoReaders.push_back(videoReaderMP4("/workspaces/FastDash/testFiles/endToEndTestFiles/test200x200/MP4/RGB Camera 0.mp4"));
+    rgbVideoReaders.push_back(videoReaderMP4("/workspaces/FastDash/testFiles/endToEndTestFiles/test200x200/MP4/RGB Camera 1.mp4"));
+    rgbVideoReaders.push_back(videoReaderMP4("/workspaces/FastDash/testFiles/endToEndTestFiles/test200x200/MP4/RGB Camera 2.mp4"));
+    rgbVideoReaders.push_back(videoReaderMP4("/workspaces/FastDash/testFiles/endToEndTestFiles/test200x200/MP4/RGB Camera 3.mp4"));
+
+
 
     // Initallize data structure for storing point cloud frames
     vector<vector<array<float,3>>> pointFrame;
@@ -57,8 +69,8 @@ int main(int argc, char *argv[]){
         keyPoints.emplace_back();
 
         // Iterate through each camera and either calculate the keypoints or transform every pixel. Then stitch them together in to a single frame
-        for(int j = 0; j< videoReaders.size(); j++){
-            vector<vector<float>> frame = videoReaders[j].getNextFrame();
+        for(int j = 0; j< depthVideoReaders.size(); j++){
+            vector<vector<float>> frame = depthVideoReaders[j].getNextFrame();
 
             if(FLAGS_calculateKeypoints){
                 std::cout << "Calculating Keypoints..." << std::endl;
